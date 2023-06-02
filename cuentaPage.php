@@ -148,9 +148,8 @@ echo "<div class='topnav'>
 <div class="container">
   <div class="sidebar">
     <ul>
-      <li><a class="active" href="#home">Home</a></li>
-      <li><a href="#news">News</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a class="active" href="#home">Perfil</a></li>
+      <li><a href="#news">Publicaciones</a></li>
     </ul>
     <ul class="sidebar-bottom">
       <li><a href='#' id='cerrar-cuenta'>Cerrar Sesion</a></li>
