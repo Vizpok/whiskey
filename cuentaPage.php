@@ -214,6 +214,10 @@ session_start();
 					<input type='text'id='apodo' name='apodo' value='$apodo'>
 					<input class='button' type='submit' value='Cambiar Apodo'><br>
 				</form>
+        <br>
+        <form action= 'http://localhost/whiskey/Sesion/whconf/act_passwprd.php'>
+          <input class='button' type='submit' value='Cambiar Contraseña'><br>
+				</form>
 			</center>
 		</div>";
 		
@@ -253,6 +257,7 @@ session_start();
 				document.getElementById('content-perfil').style.display = 'block';
 				document.getElementById('content-publicaciones').style.display = 'none';
 			});
+      
 		</script>
 	</div>
 </body>

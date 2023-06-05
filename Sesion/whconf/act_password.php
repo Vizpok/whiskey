@@ -75,10 +75,10 @@
         <label for="newPassword">Nueva Contraseña:</label><br>
         <input type="password" id="newPassword" name="newPassword"><br><br>
         <input class="button" type="submit" value="Cambiar Contraseña"><br>
-        </form>
-        <form method="post">
-          <input class="button" type="submit" name="ejecutar" value="Regresar">
-        </form>
+      </form>
+      <form method="post">
+        <input class="button" type="submit" name="ejecutar" value="Regresar">
+      </form>
 
       <?php
         $servername = "localhost";
@@ -100,20 +100,24 @@
           $password = md5($_POST["password"]);
           $newPassword = md5($_POST["newPassword"]);
 
-          $sql = "SELECT id, usuario, contraseña, telefono, email FROM sesion WHERE usuario = '$user' AND contraseña = '$password'";
-          $result = $conn->query($sql);
-
-          if ($result->num_rows > 0) {
-            $sql = "UPDATE sesion SET contraseña = '$newPassword' WHERE usuario = '$user' AND contraseña = '$password'";
-            if ($conn->query($sql) === TRUE) {
-              echo "Contraseña actualizada correctamente. </br>";
-              echo "Te regresaremos en un momento.";
-              echo "<meta http-equiv='refresh' content='3.5; url= http://localhost/whiskey/Sesion/start_sesion.php'>";
-            } else {
-              echo "Error al actualizar la contraseña: " . $conn->error;
-            }
+          if (empty($newPassword)) {
+            echo "Por favor, ingrese una contraseña nueva.</br>";
           } else {
-            echo "Usuario o contraseña incorrectos.";
+            $sql = "SELECT id, usuario, contraseña, telefono, email FROM sesion WHERE usuario = '$user' AND contraseña = '$password'";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+              $sql = "UPDATE sesion SET contraseña = '$newPassword' WHERE usuario = '$user' AND contraseña = '$password'";
+              if ($conn->query($sql) === TRUE) {
+                echo "Contraseña actualizada correctamente.</br>";
+                echo "Te redirigiremos en un momento.";
+                echo "<meta http-equiv='refresh' content='3.5; url= http://localhost/whiskey/Sesion/start_sesion.php'>";
+              } else {
+                echo "Error al actualizar la contraseña: " . $conn->error;
+              }
+            } else {
+              echo "Usuario o contraseña incorrectos.";
+            }
           }
         }
 
@@ -122,5 +126,3 @@
     </div>
   </body>
 </html>
-
-
