@@ -69,11 +69,11 @@
     <div class="categoriesDiv">
       <form method="POST">
         <label for="user">Usuario:</label><br>
-        <input type="text" id="user" name="user"><br>
+        <input type="text" id="user" name="user" minlength="3"><br>
         <label for="password">Contraseña Anterior:</label><br>
-        <input type="password" name="password" id="password"><br>
+        <input type="password" name="password" id="password" minleght = "3"><br>
         <label for="newPassword">Nueva Contraseña:</label><br>
-        <input type="password" id="newPassword" name="newPassword"><br><br>
+        <input type="password" id="newPassword" name="newPassword" minlength="3"><br><br>
         <input class="button" type="submit" value="Cambiar Contraseña"><br>
       </form>
       <form method="post">

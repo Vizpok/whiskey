@@ -27,7 +27,7 @@ session_start();
 		/* Estilo de barra */
 		.topnav {
 			overflow: hidden;
-			background-color: #120727;
+			background-color: #210092;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -59,7 +59,7 @@ session_start();
 
 		/* Color de Link de barra*/
 		.topnav a:hover {
-			background-color: #6924A5;
+			background-color: #7400FF;
 			color: white;
 		}
 
@@ -99,7 +99,7 @@ session_start();
 		}
 
 		li a.active {
-			background-color: #04AA6D;
+			background-color: #A4FF0F;
 			color: white;
 		}
 
