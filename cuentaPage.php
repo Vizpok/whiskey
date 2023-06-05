@@ -163,16 +163,16 @@ session_start();
 	</div>
 	<div class="container">
 		<div class="sidebar">
-			<ul>
-				<li><a class="active" href="#home" id='perfil'>Perfil</a></li>
-				<li><a href="#news" id='publicaciones'>Publicaciones</a></li>
-			</ul>
+    <ul>
+      <li><a id="perfilLink" class="active" href="#perfil" onclick="activateLink('perfilLink')">Perfil</a></li>
+      <li><a id="publicacionesLink" href="#publicaciones" onclick="activateLink('publicacionesLink')">Publicaciones</a></li>
+    </ul>
 			<ul class="sidebar-bottom">
 				<li><a href='#' id='cerrar-cuenta'>Cerrar Sesion</a></li>
 			</ul>
 		</div>
 		<form id='cerrar-cuenta-form' action='http://localhost/whiskey/Sesion/borrar_sesion.php' method='POST' style='display: none;'></form>
-		<div id="content-perfil" class="content" style="display: none;">
+		<div id="content-perfilLink" class="content" style="display: none;">
 			<center>
 				<?php
 				$servername = "localhost";
@@ -229,7 +229,7 @@ session_start();
 		}
 		$conn->close();
 		?>
-		<div id="content-publicaciones" class="content" style="display: none;">
+		<div id="content-publicacionesLink" class="content" style="display: none;">
 			<h2>Lo logro? lo logro!! Lo logree</h2>
 		</div>
 		<script>
@@ -238,26 +238,37 @@ session_start();
 				document.getElementById('cerrar-cuenta-form').submit();
 			});
 
-			document.getElementById('perfil').addEventListener('click', function(event) {
+			document.getElementById('perfilLink').addEventListener('click', function(event) {
 				event.preventDefault();
 
-				document.getElementById('content-perfil').style.display = 'block';
-				document.getElementById('content-publicaciones').style.display = 'none';
+				document.getElementById('content-perfilLink').style.display = 'block';
+				document.getElementById('content-publicacionesLink').style.display = 'none';
 			});
 
-			document.getElementById('publicaciones').addEventListener('click', function(event) {
+			document.getElementById('publicacionesLink').addEventListener('click', function(event) {
 				event.preventDefault();
 
-				document.getElementById('content-perfil').style.display = 'none';
-				document.getElementById('content-publicaciones').style.display = 'block';
+				document.getElementById('content-perfilLink').style.display = 'none';
+				document.getElementById('content-publicacionesLink').style.display = 'block';
 			});
 
 			document.addEventListener('DOMContentLoaded', function() {
 
-				document.getElementById('content-perfil').style.display = 'block';
-				document.getElementById('content-publicaciones').style.display = 'none';
+				document.getElementById('content-perfilLink').style.display = 'block';
+				document.getElementById('content-publicacionesLink').style.display = 'none';
 			});
       
+      var activeLinkId = 'perfilLink';
+
+      function activateLink(linkId) {
+        var activeLink = document.getElementById(activeLinkId);
+        activeLink.classList.remove('active');
+        
+        var link = document.getElementById(linkId);
+        link.classList.add('active');
+        
+        activeLinkId = linkId;
+      }
 		</script>
 	</div>
 </body>
