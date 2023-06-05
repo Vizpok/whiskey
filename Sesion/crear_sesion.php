@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php endif; ?>
     <form method="POST">
       <label for="user">Usuario:</label><br>
-      <input type="text" id="user" name="user" required><br>
+      <input type="text" id="user" name="user" maxlength="25" required><br>
       <label for="apodo">Apodo:</label><br>
       <input type="text" id="apodo" name="apodo" required><br>
       <label for="password">Contraseña:</label><br>

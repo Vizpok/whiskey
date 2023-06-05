@@ -1,22 +1,22 @@
 
 <?php
-  // Start the session
-  ini_set('display_errors', 1);
-  session_start();
+// Start the session
+ini_set('display_errors', 1);
+session_start();
 
-  // Verificar si los datos están completos y mostrar mensaje de error si no lo están
-  $error_message = '';
-  if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (!empty($_POST["user"]) || !empty($_POST["password"])) {
-      $user = $_POST["user"];
-      $_SESSION['start'] = "SI";
-      $password = md5($_POST["password"]);
+// Verificar si los datos están completos y mostrar mensaje de error si no lo están
+$error_message = '';
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  if (!empty($_POST["user"]) || !empty($_POST["password"])) {
+    $user = strtolower($_POST["user"]);
+    $_SESSION['start'] = "SI";
+    $_SESSION['usuario'] = $user;
+    $password = md5($_POST["password"]);
 
-      header("Location: whconf/iniciar_sesion.php?user=$user&password=$password");
-      exit;
-
-    }
+    header("Location: whconf/iniciar_sesion.php?user=$user&password=$password");
+    exit;
   }
+}
 ?>
 
 <!DOCTYPE html>
