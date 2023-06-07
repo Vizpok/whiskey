@@ -34,16 +34,24 @@ if ($result->num_rows > 0) {
         if(isset($_SESSION["start"]) || (!empty($_GET["user"]) && !empty($_GET["password"]))){
             if(strtolower($_GET["user"]) == $row["usuario"] && $_GET["password"] == $row["contraseña"])
             {
+                echo "se ejecuto";
                 $_SESSION["token"] = "SI";
-                echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
+                $_SESSION["equipo"] = "whiskey";
+                $_SESSION["servidor"] = "xavier";
+                $_SESSION["clintegrante1"] = "Xavier Isai";
+                $_SESSION["clintegrante2"] = "Julisa Lopez";
+                $_SESSION["clintegrante3"] = "Ricardo Daniel";
+                $_SESSION["clintegrante4"] = "Ashli Jearyn";
+                echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/DB/Sesion/return_sesion.php'>";
                 break;
             }else{
+                echo "no se ejecuto";
                     $_SESSION["token"] = "NO";
             }
-            echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/Sesion/return_sesion.php'>";
+            echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/DB/Sesion/return_sesion.php'>";
         }else{
             echo "<h3>"."Inicializa una sesion."."</h3>";
-            echo "<meta http-equiv='refresh' content='3.5; url= http://localhost/whiskey/Sesion/start_sesion.php'>";
+            echo "<meta http-equiv='refresh' content='3.5; url= http://localhost/whiskey/DB/Sesion/start_sesion.php'>";
         }
     }
 

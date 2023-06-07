@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } else {
       $sql = "INSERT INTO sesion (id, usuario, apodo, contraseña)
       VALUES ('$id', '$user', '$apodo', '".md5($_POST['password'])."')";
-
+      $_SESSION['usuario'] = $user;
       if ($conn->query($sql) === TRUE) {
         $_SESSION['start'] = "SI";
         $_SESSION["token"] = "SI";
@@ -119,11 +119,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php endif; ?>
     <form method="POST">
       <label for="user">Usuario:</label><br>
-      <input type="text" id="user" name="user" required><br>
+      <input type="text" id="user" name="user" maxlength="25" minlength = "3" required><br>
       <label for="apodo">Apodo:</label><br>
-      <input type="text" id="apodo" name="apodo" required><br>
+      <input type="text" id="apodo" name="apodo" maxlength="25" minlength = "3" required><br>
       <label for="password">Contraseña:</label><br>
-      <input type="text" name="password" id="password" required><br>
+      <input type="text" name="password" id="password" minlength = "3" maxlength="25"required><br>
       <button class="button" type="submit">Crear Cuenta</button>
     </form>
   </div>

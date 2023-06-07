@@ -1,22 +1,22 @@
 
 <?php
-  // Start the session
-  ini_set('display_errors', 1);
-  session_start();
+// Start the session
+ini_set('display_errors', 1);
+session_start();
 
-  // Verificar si los datos están completos y mostrar mensaje de error si no lo están
-  $error_message = '';
-  if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (!empty($_POST["user"]) || !empty($_POST["password"])) {
-      $user = $_POST["user"];
-      $_SESSION['start'] = "SI";
-      $password = md5($_POST["password"]);
+// Verificar si los datos están completos y mostrar mensaje de error si no lo están
+$error_message = '';
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  if (!empty($_POST["user"]) || !empty($_POST["password"])) {
+    $user = strtolower($_POST["user"]);
+    $_SESSION['start'] = "SI";
+    $_SESSION['usuario'] = $user;
+    $password = md5($_POST["password"]);
 
-      header("Location: whconf/iniciar_sesion.php?user=$user&password=$password");
-      exit;
-
-    }
+    header("Location: whconf/iniciar_sesion.php?user=$user&password=$password");
+    exit;
   }
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@
 <head>
   <style>
     body {
-      background-color: #f2f2f2;
+      background-color: #60249B;
       font-family: Arial, sans-serif;
     }
 
@@ -47,13 +47,14 @@
 
     div {
       border-radius: 10px;
-      background-color: #d3fffa;
+      background-color: #BAFF3B;
       padding: 20px;
       margin-top: 50px;
     }
 
     .button {
-      background-color: #4caf50; /* Green */
+      width: 100%;
+      background-color: #ebc847  ; /* Green */
       border: none;
       color: white;
       padding: 10px;
@@ -95,7 +96,7 @@
       <label for="password">Contraseña:</label><br>
       <input type="password" name="password" id="password" required><br>
       <a href="http://localhost/whiskey/Sesion/whconf/act_password.php/">Cambiar Contraseña</a><br><br>
-      <button class="button" type="submit">Iniciar Sesion</button>
+     <center> <button class="button" type="submit">Iniciar Sesion</button> </center>
     </form>
   </div>
 </body>
