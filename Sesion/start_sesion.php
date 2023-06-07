@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body>
   <div class="categoriesDiv">
-    <h3>Iniciar Sesión</h3>
+    <h3>Iniciar Sesión vtalv github2</h3>
     <?php if (!empty($error_message)): ?>
       <p style="color: red;"><?php echo $error_message; ?></p>
     <?php endif; ?>
