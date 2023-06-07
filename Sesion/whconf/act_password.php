@@ -6,14 +6,14 @@
   <head>
     <style>
       <?php
-      include('styles.css');
+        include('styles.css');
       ?>
     </style>
-    <h3>Cambiar Contraseña</h3>
   </head>
   <body>
     <div class="categoriesDiv">
       <form method="POST">
+      <h3>Cambiar Contraseña</h3>
         <label for="user">Usuario:</label><br>
         <input type="text" id="user" name="user" minlength="3"><br>
         <label for="password">Contraseña Anterior:</label><br>
