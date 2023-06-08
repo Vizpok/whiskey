@@ -142,6 +142,7 @@ session_start();
 			cursor: pointer;
 			border-radius: 6px;
 		}
+		<!--
 		.buttonDelete {
 			background-color: #FF003E; /* Green */
 			width: 50%;
@@ -156,6 +157,27 @@ session_start();
 			cursor: pointer;
 			border-radius: 6px;
 		}
+		-->
+		.buttonDelete {
+			position: fixed;
+			bottom: 5%;
+			transform: translateX(-50%);
+			background-color: #FF003E;
+			width: 10%;
+			border: none;
+			color: white;
+			padding: 10px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+			border-radius: 6px;
+		}
+
+
+		
 	</style>
 </head>
 <body>
@@ -232,6 +254,7 @@ session_start();
 				<form action = 'http://localhost/whiskey/Sesion/whconf/borrarCuenta.php'>
 					<input class='buttonDelete' type='submit' name= 'ejecutar 'value='Borrar Usuario'><br>
 				</form>
+				
 			</center>
 		</div>";
 				} else {
