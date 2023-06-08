@@ -39,7 +39,7 @@
         if ($conn->connect_error) {
           die("Connection failed: " . $conn->connect_error);
         }
-        if(!isset($_SESSION["user"])){
+        if(!isset($_SESSION["user"]) || !isset($_SESSION["id"])){
           if(isset($_POST["ejecutar"])){
             echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/Sesion/start_sesion.php'>";
           }

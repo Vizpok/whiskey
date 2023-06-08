@@ -40,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['start'] = "SI";
         $_SESSION["token"] = "SI";
         $_SESSION["id"] = $id;
+        $_SESSION["user"] = $user;
         echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
       } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
