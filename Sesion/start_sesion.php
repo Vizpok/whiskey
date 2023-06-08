@@ -7,6 +7,9 @@ session_start();
 // Verificar si los datos están completos y mostrar mensaje de error si no lo están
 $error_message = '';
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  if(isset($_POST["ejecutar"])){
+    echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
+  }
   if (!empty($_POST["user"]) || !empty($_POST["password"])) {
     $user = strtolower($_POST["user"]);
     $_SESSION['start'] = "SI";
@@ -41,8 +44,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <label for="password">Contraseña:</label><br>
       <input type="password" name="password" id="password" required><br>
       <a href="http://localhost/whiskey/Sesion/whconf/act_password.php/">Cambiar Contraseña</a><br><br>
-     <center> <button class="button" type="submit">Iniciar Sesion</button> </center>
+      <a href="http://localhost/whiskey/Sesion/crear_sesion.php/">Crear Cuenta</a><br><br>
+      <center>
+      <button class="button" type="submit">Iniciar Sesion</button> 
+    </form>
+    <form method="post">
+      <input class="buttonHome" type="submit" name="ejecutar" value="Menu Principal">
     </form>
   </div>
+  </center>
 </body>
 </html>

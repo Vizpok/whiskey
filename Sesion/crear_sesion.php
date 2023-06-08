@@ -6,6 +6,9 @@ session_start();
 
 $error_message = '';
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  if(isset($_POST["ejecutar"])){
+    echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
+  }
   if (!empty($_POST["user"]) || !empty($_POST["password"]) || !empty($_POST["apodo"])) {
     $user = strtolower($_POST["user"]);
     $apodo = $_POST["apodo"];
@@ -36,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       if ($conn->query($sql) === TRUE) {
         $_SESSION['start'] = "SI";
         $_SESSION["token"] = "SI";
+        $_SESSION["id"] = $id;
         echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
       } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
@@ -70,8 +74,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <input type="text" id="apodo" name="apodo" maxlength="25" minlength = "3" required><br>
       <label for="password">Contraseña:</label><br>
       <input type="text" name="password" id="password" minlength = "3" maxlength="25"required><br>
+      <a href="http://localhost/whiskey/Sesion/start_sesion.php/">Iniciar Sesion</a><br><br>
+      <center>
       <button class="button" type="submit">Crear Cuenta</button>
     </form>
+    <form method="post" >
+      <input class="buttonHome" type="submit" name="ejecutar" value="Menu Principal">
+    </form>
+    </center>
   </div>
 </body>
 </html>

@@ -28,7 +28,22 @@ div {
 }
 
 .button {
-  width: 100%;
+  width: 35%;
+  background-color: #292FE5; /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.buttonHome{
+  width: 25%;
   background-color: #292FE5; /* Green */
   border: none;
   color: white;

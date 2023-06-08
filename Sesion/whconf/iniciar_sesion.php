@@ -24,7 +24,7 @@ if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT id, usuario, contraseña, telefono, email FROM sesion";
+$sql = "SELECT id, usuario, apodo, contraseña, telefono, email FROM sesion";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -35,6 +35,8 @@ if ($result->num_rows > 0) {
             if(strtolower($_GET["user"]) == $row["usuario"] && $_GET["password"] == $row["contraseña"])
             {
                 $_SESSION["token"] = "SI";
+                $_SESSION["user"] = "".$_GET['user']."";
+                $_SESSION["id"] = $row["id"];
                 echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
                 break;
             }else{

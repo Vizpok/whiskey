@@ -28,7 +28,7 @@ body {
 /* Estilo de barra */
 .topnav {
   overflow: hidden;
-  background-color: #18034F;
+  background-color: #60249B;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -58,8 +58,8 @@ body {
 
 /* Color de Link de barra*/
 .topnav a:hover {
-  background-color: #6924A5;
-  color: white;
+  background-color: #b6ee50;
+  color: #60249B;
 }
 </style>
 </head>

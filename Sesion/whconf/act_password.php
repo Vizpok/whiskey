@@ -20,10 +20,11 @@
         <input type="password" name="password" id="password" minleght = "3"><br>
         <label for="newPassword">Nueva Contraseña:</label><br>
         <input type="password" id="newPassword" name="newPassword" minlength="3"><br><br>
+        <center>
         <input class="button" type="submit" value="Cambiar Contraseña"><br>
       </form>
-      <form method="post">
-        <input class="button" type="submit" name="ejecutar" value="Regresar">
+      <form method="post" >
+      <input class="buttonBack" type="submit" name="ejecutar" value="Regresar">
       </form>
 
       <?php
@@ -38,8 +39,14 @@
         if ($conn->connect_error) {
           die("Connection failed: " . $conn->connect_error);
         }
-        if(isset($_POST["ejecutar"])){
-          echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/Sesion/start_sesion.php'>";
+        if(!isset($_SESSION["user"])){
+          if(isset($_POST["ejecutar"])){
+            echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/Sesion/start_sesion.php'>";
+          }
+        }else{
+          if(isset($_POST["ejecutar"])){
+          echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
+          }
         }
         if (isset($_POST["user"]) && isset($_POST["password"]) && isset($_POST["newPassword"])) {
           $user = $_POST["user"];
@@ -57,6 +64,15 @@
               if ($conn->query($sql) === TRUE) {
                 echo "Contraseña actualizada correctamente.</br>";
                 echo "Te redirigiremos en un momento.";
+                if(empty($_SESSION["token"]) != true)
+                {
+                    // remove all session variables
+                    session_unset();
+            
+                    // destroy the session
+                    session_destroy();
+                    //echo "Se ha cerrado sesion";
+                }
                 echo "<meta http-equiv='refresh' content='3.5; url= http://localhost/whiskey/Sesion/start_sesion.php'>";
               } else {
                 echo "Error al actualizar la contraseña: " . $conn->error;
