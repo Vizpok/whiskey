@@ -251,9 +251,11 @@ session_start();
 				<form action= 'http://localhost/whiskey/Sesion/whconf/act_password.php'>
 					<input class='button' type='submit' value='Cambiar Contraseña'><br>
 				</form>
-				<form action = 'http://localhost/whiskey/Sesion/whconf/borrarCuenta.php'>
-					<input class='buttonDelete' type='submit' name= 'ejecutar 'value='Borrar Usuario'><br>
-				</form>
+
+				<form id='deleteForm' action='http://localhost/whiskey/Sesion/whconf/borrarCuenta.php'>
+					<input class='buttonDelete' type='submit' name='ejecutar' value='Borrar Usuario'><br>
+				  </form>
+				  
 				
 			</center>
 		</div>";
@@ -274,6 +276,15 @@ session_start();
 			<h2>Lo logro? lo logro!! Lo logree</h2>
 		</div>
 		<script>
+			document.getElementById("deleteForm").addEventListener("submit", function(event) {
+			event.preventDefault(); // Prevenir el envío del formulario por defecto
+
+			if (confirm("¿Estás seguro de que deseas borrar el usuario?")) {
+				// Si el usuario hace clic en "Aceptar", redirigir al enlace
+				window.location.href = document.getElementById("deleteForm").action;
+			}
+			});
+
 			document.getElementById('cerrar-cuenta').addEventListener('click', function(event) {
 				event.preventDefault();
 				document.getElementById('cerrar-cuenta-form').submit();
