@@ -3,6 +3,11 @@ body {
   font-family: Arial, sans-serif;
 }
 
+body {
+  background-color: #60249B;
+  font-family: Arial, sans-serif;
+}
+
 .categoriesDiv {
   width: 50%;
   margin: 0 auto;
@@ -38,11 +43,15 @@ select {
 div {
   border-radius: 10px;
   background-color: #BAFF3B;
+  background-color: #BAFF3B;
   padding: 20px;
+  margin-top: 50px;
   margin-top: 50px;
 }
 
 .button {
+  width: 35%;
+  background-color: #292FE5; /* Green */
   width: 35%;
   background-color: #292FE5; /* Green */
   border: none;
@@ -55,8 +64,21 @@ div {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 12px;
+  border-radius: 12px;
 }
 
+.buttonHome{
+  width: 25%;
+  background-color: #292FE5; /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 .buttonHome{
   width: 25%;
   background-color: #292FE5; /* Green */
@@ -76,7 +98,9 @@ h3 {
   font-weight: bold;
   color: rgb(53, 0, 132);
   text-align: center;
+  text-align: center;
 }
+
 
 a {
   color: rgb(133, 0, 145);

@@ -3,7 +3,21 @@
 // Start the session
 ini_set('display_errors', 1);
 session_start();
+// Start the session
+ini_set('display_errors', 1);
+session_start();
 
+// Verificar si los datos están completos y mostrar mensaje de error si no lo están
+$error_message = '';
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  if(isset($_POST["ejecutar"])){
+    echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
+  }
+  if (!empty($_POST["user"]) || !empty($_POST["password"])) {
+    $user = strtolower($_POST["user"]);
+    $_SESSION['start'] = "SI";
+    $_SESSION['usuario'] = $user;
+    $password = md5($_POST["password"]);
 // Verificar si los datos están completos y mostrar mensaje de error si no lo están
 $error_message = '';
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -20,12 +34,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     exit;
   }
 }
+    header("Location: whconf/iniciar_sesion.php?user=$user&password=$password");
+    exit;
+  }
+}
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
   <style>
+    <?php
+      include('styles.css');
+    ?>
     <?php
       include('styles.css');
     ?>
@@ -52,7 +73,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <form method="post">
       <input class="buttonHome" type="submit" name="ejecutar" value="Menu Principal">
     </form>
+    <form method="post">
+      <input class="buttonHome" type="submit" name="ejecutar" value="Menu Principal">
+    </form>
   </div>
+  </center>
   </center>
 </body>
 </html>

@@ -9,6 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   if(isset($_POST["ejecutar"])){
     echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
   }
+  if(isset($_POST["ejecutar"])){
+    echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
+  }
   if (!empty($_POST["user"]) || !empty($_POST["password"]) || !empty($_POST["apodo"])) {
     $user = strtolower($_POST["user"]);
     $apodo = $_POST["apodo"];
@@ -36,9 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $sql = "INSERT INTO sesion (id, usuario, apodo, contraseña)
       VALUES ('$id', '$user', '$apodo', '".md5($_POST['password'])."')";
       $_SESSION['usuario'] = $user;
+      $_SESSION['usuario'] = $user;
       if ($conn->query($sql) === TRUE) {
         $_SESSION['start'] = "SI";
         $_SESSION["token"] = "SI";
+        $_SESSION["id"] = $id;
+        $_SESSION["user"] = $user;
         $_SESSION["id"] = $id;
         $_SESSION["user"] = $user;
         echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
@@ -56,6 +62,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html>
 <head>
   <style>
+    <?php
+    include('styles.css');
+    ?>
     <?php
     include('styles.css');
     ?>
@@ -77,6 +86,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       
       <button class="button" type="submit">Crear Cuenta</button>
     </form>
+    <form method="post" >
+      <input class="buttonHome" type="submit" name="ejecutar" value="Menu Principal">
+    </form>
+    </center>
     <form method="post" >
       <input class="buttonHome" type="submit" name="ejecutar" value="Menu Principal">
     </form>

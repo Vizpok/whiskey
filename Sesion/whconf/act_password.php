@@ -8,11 +8,13 @@
       <?php
         include('styles.css');
       ?>
+      <?php
+        include('styles.css');
+      ?>
     </style>
   </head>
   <body>
     <div class="categoriesDiv">
-      <center>
       <form method="POST">
       <h3>Cambiar Contraseña</h3>
         <input type="text" autocomplete="off" id = "user" name="user" class="input" placeholder="Usuario" maxlength="25" minlength = "3" required>
