@@ -9,9 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   if(isset($_POST["ejecutar"])){
     echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
   }
-  if(isset($_POST["ejecutar"])){
-    echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
-  }
   if (!empty($_POST["user"]) || !empty($_POST["password"]) || !empty($_POST["apodo"])) {
     $user = strtolower($_POST["user"]);
     $apodo = $_POST["apodo"];
@@ -73,11 +70,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body>
   <div class="categoriesDiv">
+  <center>
     <h3>Crear Cuenta</h3>
     <?php if (!empty($error_message)): ?>
       <p style="color: red;"><?php echo $error_message; ?></p>
     <?php endif; ?>
-    <center>
+    
     <form method="POST">
       <input type="text" autocomplete="off" id = "user" name="user" class="input" placeholder="Nombre del Usuario" maxlength="25" minlength = "3" required>
       <input type="text" autocomplete="off" id = "apodo" name="apodo" class="input" placeholder="Apodo" maxlength="25" minlength = "3" required><br>
@@ -90,9 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <input class="buttonHome" type="submit" name="ejecutar" value="Menu Principal">
     </form>
     </center>
-    <form method="post" >
-      <input class="buttonHome" type="submit" name="ejecutar" value="Menu Principal">
-    </form>
+
     </center>
   </div>
 </body>
