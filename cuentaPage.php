@@ -27,7 +27,7 @@ session_start();
 		/* Estilo de barra */
 		.topnav {
 			overflow: hidden;
-			background-color: #210092;
+			background-color: #60249B ;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -59,8 +59,8 @@ session_start();
 
 		/* Color de Link de barra*/
 		.topnav a:hover {
-			background-color: #7400FF;
-			color: white;
+			background-color: #b6ee50 ;
+			color: #60249B;
 		}
 
 		.container {
@@ -93,19 +93,19 @@ session_start();
 
 		li a {
 			display: block;
-			color: #000;
+			color: #60249B;
 			padding: 8px 16px;
 			text-decoration: none;
 		}
 
 		li a.active {
-			background-color: #A4FF0F;
-			color: white;
+			background-color: #b6ee50 ;
+			color: #60249B;
 		}
 
 		li a:hover:not(.active) {
 			background-color: #555;
-			color: white;
+			color: #b6ee50;
 		}
 
 		.sidebar-bottom {
@@ -129,7 +129,8 @@ session_start();
 			color: white;
 		}
 		.button {
-			background-color: #6196FF; /* Green */
+			background-color: #292FE5; /* Green */
+			width: 100%;
 			border: none;
 			color: white;
 			padding: 10px;
@@ -141,6 +142,42 @@ session_start();
 			cursor: pointer;
 			border-radius: 6px;
 		}
+		<!--
+		.buttonDelete {
+			background-color: #FF003E; /* Green */
+			width: 50%;
+			border: none;
+			color: white;
+			padding: 10px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+			border-radius: 6px;
+		}
+		-->
+		.buttonDelete {
+			position: fixed;
+			bottom: 5%;
+			transform: translateX(-50%);
+			background-color: #FF003E;
+			width: 10%;
+			border: none;
+			color: white;
+			padding: 10px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+			border-radius: 6px;
+		}
+
+			
+		
 	</style>
 </head>
 <body>
@@ -200,11 +237,7 @@ session_start();
 						}
 					}
 					end:
-				} else {
-					echo "0 results";
-				}
-
-				echo "<!-- Lugar del primer div -->
+					echo "<!-- Lugar del primer div -->
 				<form>
 					<label for='fname'> Usuario:</label>
 					<input type='text' id='fname'value='$nomUsuario' disabled>
@@ -214,12 +247,22 @@ session_start();
 					<input type='text'id='apodo' name='apodo' value='$apodo'>
 					<input class='button' type='submit' value='Cambiar Apodo'><br>
 				</form>
-        <br>
-        <form action= 'http://localhost/whiskey/Sesion/whconf/act_passwprd.php'>
-          <input class='button' type='submit' value='Cambiar Contraseña'><br>
+				<br>
+				<form action= 'http://localhost/whiskey/Sesion/whconf/act_password.php'>
+					<input class='button' type='submit' value='Cambiar Contraseña'><br>
 				</form>
+
+				<form id='deleteForm' action='http://localhost/whiskey/Sesion/whconf/borrarCuenta.php'>
+					<input class='buttonDelete' type='submit' name='ejecutar' value='Borrar Usuario'><br>
+				  </form>
+				  
+				
 			</center>
 		</div>";
+				} else {
+					echo "0 results";
+				}
+				
 		
 		if(isset($_POST['apodo'])){
 			$sqlupd = "UPDATE sesion SET apodo = '".$_POST['apodo']."' WHERE usuario = '$nomUsuario'";
@@ -233,6 +276,15 @@ session_start();
 			<h2>Lo logro? lo logro!! Lo logree</h2>
 		</div>
 		<script>
+			document.getElementById("deleteForm").addEventListener("submit", function(event) {
+			event.preventDefault(); // Prevenir el envío del formulario por defecto
+
+			if (confirm("¿Estás seguro de que deseas borrar el usuario?")) {
+				// Si el usuario hace clic en "Aceptar", redirigir al enlace
+				window.location.href = document.getElementById("deleteForm").action;
+			}
+			});
+
 			document.getElementById('cerrar-cuenta').addEventListener('click', function(event) {
 				event.preventDefault();
 				document.getElementById('cerrar-cuenta-form').submit();

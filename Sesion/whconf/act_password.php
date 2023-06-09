@@ -5,79 +5,23 @@
 <html>
   <head>
     <style>
-      body {
-        background-color: #f2f2f2;
-        font-family: Arial, sans-serif;
-      }
-
-      .categoriesDiv {
-        width: 50%;
-        margin: 0 auto;
-      }
-
-      input[type=text],
-      input[type=password],
-      select {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-      }
-
-      div {
-        border-radius: 10px;
-        background-color: #d3fffa;
-        padding: 20px;
-        margin-top: 50px;
-      }
-
-      .button {
-        background-color: #4caf50; /* Green */
-        border: none;
-        color: white;
-        padding: 10px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 12px;
-      }
-
-      h3 {
-        font-weight: bold;
-        color: rgb(53, 0, 132);
-        text-align: center;
-      }
-
-      a {
-        color: rgb(133, 0, 145);
-        text-decoration: none;
-      }
-
-      a:hover {
-        color: rgb(166, 0, 58);
-      }
+      <?php
+        include('styles.css');
+      ?>
     </style>
-    <h3>Cambiar Contraseña</h3>
   </head>
   <body>
     <div class="categoriesDiv">
+      <center>
       <form method="POST">
-        <label for="user">Usuario:</label><br>
-        <input type="text" id="user" name="user" minlength="3"><br>
-        <label for="password">Contraseña Anterior:</label><br>
-        <input type="password" name="password" id="password" minleght = "3"><br>
-        <label for="newPassword">Nueva Contraseña:</label><br>
-        <input type="password" id="newPassword" name="newPassword" minlength="3"><br><br>
+      <h3>Cambiar Contraseña</h3>
+        <input type="text" autocomplete="off" id = "user" name="user" class="input" placeholder="Usuario" maxlength="25" minlength = "3" required>
+        <input type="password" autocomplete="off" id = "password" name="password" class="input" placeholder="Contraseña Anterior" maxlength="25" minlength = "3" required>
+        <input type="password" autocomplete="off" id = "newPassword" name="newPassword" class="input" placeholder="Nueva Contraseña" maxlength="25" minlength = "3" required><br><br>
         <input class="button" type="submit" value="Cambiar Contraseña"><br>
       </form>
-      <form method="post">
-        <input class="button" type="submit" name="ejecutar" value="Regresar">
+      <form method="post" >
+      <input class="buttonBack" type="submit" name="ejecutar" value="Regresar">
       </form>
 
       <?php
@@ -92,8 +36,14 @@
         if ($conn->connect_error) {
           die("Connection failed: " . $conn->connect_error);
         }
-        if(isset($_POST["ejecutar"])){
-          echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/Sesion/start_sesion.php'>";
+        if(!isset($_SESSION["user"]) || !isset($_SESSION["id"])){
+          if(isset($_POST["ejecutar"])){
+            echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/Sesion/start_sesion.php'>";
+          }
+        }else{
+          if(isset($_POST["ejecutar"])){
+          echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
+          }
         }
         if (isset($_POST["user"]) && isset($_POST["password"]) && isset($_POST["newPassword"])) {
           $user = $_POST["user"];
@@ -111,6 +61,15 @@
               if ($conn->query($sql) === TRUE) {
                 echo "Contraseña actualizada correctamente.</br>";
                 echo "Te redirigiremos en un momento.";
+                if(empty($_SESSION["token"]) != true)
+                {
+                    // remove all session variables
+                    session_unset();
+            
+                    // destroy the session
+                    session_destroy();
+                    //echo "Se ha cerrado sesion";
+                }
                 echo "<meta http-equiv='refresh' content='3.5; url= http://localhost/whiskey/Sesion/start_sesion.php'>";
               } else {
                 echo "Error al actualizar la contraseña: " . $conn->error;
