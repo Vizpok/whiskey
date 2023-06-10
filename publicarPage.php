@@ -1041,6 +1041,12 @@ button:active {
    transform: translateY(-10px);
   }
  }
+ .title {
+  color: #C712AC;
+  font-weight: 900;
+  font-size: 35px;
+  margin-bottom: 25px;
+}
 </style>
 </head>
 <body>
@@ -1124,6 +1130,7 @@ if(isset($_SESSION['start']) && $_SESSION['token'] == 'SI') {
     }
   </script>";
 }else{ 
+  echo "<div class='title'>Para Publicar</div>";
   echo "<div class='spinner'>
   <span>I</span>
   <span>n</span>
