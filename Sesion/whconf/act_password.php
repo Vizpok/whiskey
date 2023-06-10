@@ -60,8 +60,17 @@
             if ($result->num_rows > 0) {
               $sql = "UPDATE sesion SET contraseña = '$newPassword' WHERE usuario = '$user' AND contraseña = '$password'";
               if ($conn->query($sql) === TRUE) {
-                echo "Contraseña actualizada correctamente.</br>";
-                echo "Te redirigiremos en un momento.";
+                echo "<center>";
+                echo "<div class='spinner'>
+                  <span>C</span>
+                  <span>A</span>
+                  <span>R</span>
+                  <span>G</span>
+                  <span>A</span>
+                  <span>N</span>
+                  <span>D</span>
+                  <span>O</span>
+                </div></center>";
                 if(empty($_SESSION["token"]) != true)
                 {
                     // remove all session variables

@@ -61,6 +61,92 @@ body {
   background-color: #b6ee50;
   color: #60249B;
 }
+
+/*Publicacion css*/
+.card {
+  box-sizing: border-box;
+  display: flex;
+  max-width: 25%;
+  background-color: rgba(255, 255, 255, 1);
+  transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.081);
+}
+
+.date-time-container {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  padding: 0.5rem;
+}
+
+.date-time {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  grid-gap: 1rem;
+  gap: 1rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(17, 24, 39, 1);
+}
+
+.separator {
+  width: 1px;
+  flex: 1 1 0%;
+  background-color: rgba(17, 24, 39, 0.1);
+}
+
+.content {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.infos {
+  border-left: 1px solid rgba(17, 24, 39, 0.1);
+  padding: 1rem;
+}
+
+.title {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 18.72px;
+  color: rgba(17, 24, 39, 1);
+}
+
+.description {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgba(55, 65, 81, 1);
+}
+
+.action {
+  display: block;
+  background-color: rgba(253, 224, 71, 1);
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(17, 24, 39, 1);
+  transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.action:hover {
+  background-color: rgba(250, 204, 21, 1);
+}
 </style>
 </head>
 <body>
@@ -102,13 +188,43 @@ if(isset($_SESSION["start"]) && $_SESSION["token"] == "SI") {
 
 echo "<div class='topnav-center'>
         <a href=''>Inicio</a>
-        <a href='#'>Pista</a>
-        <a href='#'>Leaderboard</a>
+        <a href='http://localhost/whiskey/publicarPage.php'>Publicar</a>
+        <a href='#'>Buscar</a>
         <a href='#'>News</a>
       </div>
       <div class='topnav-right'></div>
     </div>";
 ?>
 <h1>Pagina principal </h1>
+<div class="card">
+  <div class="date-time-container">
+    <time class="date-time" datetime="2022-10-10">
+      <span>2022</span>
+      <span class="separator"></span>
+      <span>Oct 10</span>
+    </time>
+  </div>
+  <div class="content">
+  
+    <div class="infos">
+      <a href="#">
+        <label class="title">
+         Por que Jhonatan es gei?
+        </label>
+      </a>
+
+      <p class="description">
+        Despues de realizar una serie de investigaciones al especimen jhonatan descubrimos, 
+        descubrimos que la naturaleza del ser es ser gei, lamentablemente no se pude curar, 
+        lo cual no seria malo si no intentara en repetidas ocasiones aparearse con el equipo 
+        de contencion masculino en repetidas ocasiones.
+      </p>
+    </div>
+
+      <a class="action" href="#">
+        Read Blog
+      </a>
+  </div>
+</div>
 </body>
 </html>

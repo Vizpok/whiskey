@@ -178,8 +178,8 @@ session_start();
 		</div>
 		<div class='topnav-center'>
 			<a href='http://localhost/whiskey/menuPage.php'>Inicio</a>
-			<a href='#'>Pista</a>
-			<a href='#'>Leaderboard</a>
+			<a href='http://localhost/whiskey/publicarPage.php'>Publicar</a>
+			<a href='#'>Buscar</a>
 			<a href='#'>News</a>
 		</div>
 		<div class='topnav-right'>

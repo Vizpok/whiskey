@@ -9,6 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   if(isset($_POST["ejecutar"])){
     echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
   }
+  if(isset($_POST["sesion"])){
+    echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/Sesion/start_sesion.php'>";
+  }
   if (!empty($_POST["user"]) || !empty($_POST["password"]) || !empty($_POST["apodo"])) {
     $user = strtolower($_POST["user"]);
     $apodo = $_POST["apodo"];
@@ -80,11 +83,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <input type="text" autocomplete="off" id = "user" name="user" class="input" placeholder="Nombre del Usuario" maxlength="25" minlength = "3" required>
       <input type="text" autocomplete="off" id = "apodo" name="apodo" class="input" placeholder="Apodo" maxlength="25" minlength = "3" required><br>
       <input type="test" autocomplete="off" id = "password" name="password" class="input" placeholder="Crear Contraseña" maxlength="25" minlength = "3" required><br><br>
-      <a href="http://localhost/whiskey/Sesion/start_sesion.php/">Iniciar Sesion</a><br><br>
-      
-      <button class="button" type="submit">Crear Cuenta</button>
+      <button class="button" type="submit">Crear Cuenta</button><br><br><br><br>
     </form>
     <form method="post" >
+    <input class="buttonAccount" type="submit" name="sesion" value="Iniciar Sesion"><br>
       <input class="buttonHome" type="submit" name="ejecutar" value="Menu Principal">
     </form>
     </center>
