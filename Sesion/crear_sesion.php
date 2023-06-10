@@ -82,10 +82,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <form method="POST">
       <input type="text" autocomplete="off" id = "user" name="user" class="input" placeholder="Nombre del Usuario" maxlength="25" minlength = "3" required>
       <input type="text" autocomplete="off" id = "apodo" name="apodo" class="input" placeholder="Apodo" maxlength="25" minlength = "3" required><br>
-      <input type="test" autocomplete="off" id = "password" name="password" class="input" placeholder="Crear Contraseña" maxlength="25" minlength = "3" required><br><br>
+      <input type="text" autocomplete="off" id = "password" name="password" class="input" placeholder="Crear Contraseña" maxlength="25" minlength = "3" required><br>
+      <input type="text" autocomplete="off" id = "confPassword" name="confPassword" class="input" placeholder="Confirmar Contraseña" maxlength="25" minlength = "3" required><br><br>
       <button class="button" type="submit">Crear Cuenta</button><br><br><br><br>
     </form>
     <form method="post" >
+    Tienes Cuenta?<br>
     <input class="buttonAccount" type="submit" name="sesion" value="Iniciar Sesion"><br>
       <input class="buttonHome" type="submit" name="ejecutar" value="Menu Principal">
     </form>

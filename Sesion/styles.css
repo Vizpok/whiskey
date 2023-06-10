@@ -44,7 +44,7 @@ div {
 }
 
 .button {
-  width: 35%;
+  width: 20%;
   background-color: #292FE5; /* Green */
   border: none;
   color: white;
@@ -73,7 +73,7 @@ div {
   border-radius: 12px;
 }
 .buttonAccount{
-  width: 25%;
+  width: 20%;
   background-color: #AD0E97; /* Green */
   border: none;
   color: white;

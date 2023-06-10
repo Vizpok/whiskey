@@ -55,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       </form>
     
     <form method="post">
+      No tienes Cuenta? <br>
       <input class="buttonAccount" type="submit" name="crearCuenta" value="Crear Cuenta"><br>
     </form>
     <form method="POST">

@@ -164,8 +164,6 @@ session_start();
 			border-radius: 6px;
 		}
 
-
-		
 	</style>
 </head>
 <body>
@@ -243,7 +241,6 @@ session_start();
 				<form id='deleteForm' action='http://localhost/whiskey/Sesion/whconf/borrarCuenta.php'>
 					<input class='buttonDelete' type='submit' name='ejecutar' value='Borrar Usuario'><br>
 				  </form>
-				  
 				
 			</center>
 		</div>";
@@ -309,6 +306,7 @@ session_start();
         
         activeLinkId = linkId;
       }
+	  
 		</script>
 	</div>
 </body>
