@@ -21,7 +21,7 @@
         <input class="button" type="submit" value="Cambiar Contraseña"><br>
       </form>
       <form method="post" >
-      <input class="buttonBack" type="submit" name="ejecutar" value="Regresar">
+      <input class="buttonHome" type="submit" name="ejecutar" value="Regresar">
       </form>
 </center>
 

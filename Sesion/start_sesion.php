@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <input type="text" autocomplete="off" id = "user" name="user" class="input" placeholder="Usuario" required>
       <input type="password" autocomplete="off" id = "password" name="password" class="input" placeholder="Contraseña" required><br>
       
-      <a href="http://localhost/whiskey/Sesion/whconf/act_password.php/">Cambiar Contraseña</a><br><br>
+      <h4><a href="http://localhost/whiskey/Sesion/whconf/act_password.php/" style="color: #dfa8ff; font-family: Arial, sans-serif;">Cambiar Contraseña</a></h4>
       </center>
       <center>
       
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       </form>
     
     <form method="post">
-      No tienes Cuenta? <br>
+    <h4><p style="color: white; font-family: Arial, sans-serif;">No tienes cuenta?</p></h4>
       <input class="buttonAccount" type="submit" name="crearCuenta" value="Crear Cuenta"><br>
     </form>
     <form method="POST">

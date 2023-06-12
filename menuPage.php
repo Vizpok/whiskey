@@ -209,7 +209,7 @@ echo "<div class='topnav-center'>
     <div class="infos">
       <a href="#">
         <label class="title">
-         Por que Jhonatan es gei?
+         Incertidumbres de la vida
         </label>
       </a>
 

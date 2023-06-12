@@ -1,10 +1,11 @@
 body {
-  background-color: #60249B;
+  background-color: #DFEAED;
   font-family: Arial, sans-serif;
+  
 }
 
 .categoriesDiv {
-  width: 50%;
+  width: 25%;
   margin: 0 auto;
 }
 .input {
@@ -12,7 +13,7 @@ body {
   outline: none;
   border-radius: 15px;
   padding: 1em;
-  background-color: #FFFFEA;
+  background-color: #ffffa8;
   box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
   transition: 300ms ease-in-out;
 }
@@ -26,7 +27,7 @@ body {
 input[type=text],
 input[type=password],
 select {
-  width: 50%;
+  width: 75%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -37,15 +38,17 @@ select {
 
 div {
   border-radius: 10px;
-  background-color: #BAFF3B;
+  background-color: #6200EE;
   padding: 20px;
   margin-top: 50px;
   margin-top: 50px;
+  box-shadow: 13px 13px 100px #9a52ff,
+             -13px -13px 100px #fb8eff;
 }
 
 .button {
-  width: 20%;
-  background-color: #292FE5; /* Green */
+  width: 40%;
+  background-color: #03Dac5; /* Green */
   border: none;
   color: white;
   padding: 10px;
@@ -56,11 +59,12 @@ div {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 12px;
+  box-shadow:  5px 5px 20px #03b9a7;
 }
 
 .buttonHome{
-  width: 25%;
-  background-color: #292FE5; /* Green */
+  width: 30%;
+  background-color: #ffa4eb; /* Green */
   border: none;
   color: white;
   padding: 10px;
@@ -71,10 +75,11 @@ div {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 12px;
+  box-shadow:  5px 5px 20px #ff25d0;
 }
 .buttonAccount{
-  width: 20%;
-  background-color: #AD0E97; /* Green */
+  width: 40%;
+  background-color: #03Dac5; /* Green */
   border: none;
   color: white;
   padding: 10px;
@@ -85,17 +90,18 @@ div {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 12px;
+  box-shadow:  5px 5px 20px #03b9a7;
 }
 h3 {
   font-weight: bold;
-  color: rgb(53, 0, 132);
+  color: whitesmoke;
   text-align: center;
   text-align: center;
 }
 
 
 a {
-  color: rgb(133, 0, 145);
+  color: wheat;
   text-decoration: none;
 }
 
