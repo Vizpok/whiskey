@@ -163,7 +163,90 @@ session_start();
 			cursor: pointer;
 			border-radius: 6px;
 		}
+		.card {
+  box-sizing: border-box;
+  display: flex;
+  max-width: 25%;
+  background-color: rgba(255, 255, 255, 1);
+  transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+.card:hover {
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.081);
+}
+
+.date-time-container {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  padding: 0.5rem;
+}
+
+.date-time {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  grid-gap: 1rem;
+  gap: 1rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(17, 24, 39, 1);
+}
+
+.separator {
+  width: 1px;
+  flex: 1 1 0%;
+  background-color: rgba(17, 24, 39, 0.1);
+}
+
+.content {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.infos {
+  border-left: 1px solid rgba(17, 24, 39, 0.1);
+  padding: 1rem;
+}
+
+.title {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 18.72px;
+  color: rgba(17, 24, 39, 1);
+}
+
+.description {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgba(55, 65, 81, 1);
+}
+
+.action {
+  display: block;
+  background-color: rgba(253, 224, 71, 1);
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(17, 24, 39, 1);
+  transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.action:hover {
+  background-color: rgba(250, 204, 21, 1);
+}
 	</style>
 </head>
 <body>
@@ -177,7 +260,7 @@ session_start();
 		<div class='topnav-center'>
 			<a href='http://localhost/whiskey/menuPage.php'>Inicio</a>
 			<a href='http://localhost/whiskey/publicarPage.php'>Publicar</a>
-			<a href='#'>Buscar</a>
+			<a href='http://localhost/whiskey/buscarPage.php'>Buscar</a>
 			<a href='#'>News</a>
 		</div>
 		<div class='topnav-right'>
@@ -259,7 +342,66 @@ session_start();
 		?>
 		<div id="content-publicacionesLink" class="content" style="display: none;">
 			<h2>Lo logro? lo logro!! Lo logree</h2>
+			<?php
+echo $_SESSION["id"];
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "respaldo";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT idp, id, titulo, publicacion, fecha FROM publicaciones LIMIT 12";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    //echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+    if($row["id"] == $_SESSION["id"]){
+    echo "<div class='card'>
+  <div class='date-time-container'>
+    <time class='date-time' datetime='2022-10-10'>
+      <span>2022</span>
+      <span class='separator'></span>
+      <span>Oct 10</span>
+    </time>
+  </div>
+  <div class='content'>
+  
+    <div class='infos'>
+      <a href='#'>
+        <label class='title'>
+         Incertidumbres de la vida
+        </label>
+      </a>
+
+      <p class='description'>";
+      echo $row['publicacion'];
+
+     echo " </p>
+    </div>
+
+      <a class='action' href='#'>
+        Read Blog
+      </a>
+  </div>
+</div>";
+
+    }
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
+?>
 		</div>
+		
 		<script>
 			document.getElementById("deleteForm").addEventListener("submit", function(event) {
 			event.preventDefault(); // Prevenir el envío del formulario por defecto
