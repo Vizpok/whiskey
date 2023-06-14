@@ -16,11 +16,12 @@
 
 body {
   margin: 0;
+  background-color: #FFF4FF;
 }
 
 /* Style the header */
 .header {
-  background-color: #f1f1f1;
+  background-color: #ededed;
   padding: 20px;
   text-align: center;
 }
@@ -28,10 +29,12 @@ body {
 /* Estilo de barra */
 .topnav {
   overflow: hidden;
-  background-color: #60249B;
+  background-color: #3D1663;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 7px 7px 20px #9a52ff,
+             -7px -7px 20px #fb8eff;
 }
 
 /* Style the topnav links */
@@ -58,11 +61,14 @@ body {
 
 /* Color de Link de barra*/
 .topnav a:hover {
-  background-color: #b6ee50;
+  background-color: #A9F468;
   color: #60249B;
+  box-shadow: 10px 10px 50px #68EE50,
+             -10px -10px 50px #50EECA;
 }
 
 .leftcolumn {   
+  
   float: left;
   width: 50%;
   background-color: #f1f1f1;
@@ -82,6 +88,8 @@ body {
   background-color: white;
   padding: 20px;
   margin-top: 20px;
+  box-shadow: 10px 10px 20px #8FF1FF,
+             -10px -10px 20px #8FF1FF;
 }
 
 /* Clear floats after the columns */
@@ -90,7 +98,17 @@ body {
   display: table;
   clear: both;
 }
-
+.description {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgba(55, 65, 81, 1);
+}
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
   .leftcolumn, .rightcolumn {   
@@ -169,7 +187,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT idp, id, titulo, publicacion, fecha FROM publicaciones LIMIT 20";
+$sql = "SELECT idp, id, titulo, publicacion, fecha FROM publicaciones ORDER BY fecha DESC LIMIT 50";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -177,7 +195,7 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     //echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
 $fecha = $row["fecha"];
-$formato = "d/m/Y";
+$formato = "d-m-Y";
 $fecha_dt = DateTime::createFromFormat($formato, $fecha);
 
 $dia = $fecha_dt->format('d');
@@ -189,7 +207,8 @@ echo "<div class='row'>
   <div class='card'>
     <h2>".$row["titulo"]."</h2>
     <h5>".$dia." ".$mes." ".$año."</h5>
-    <p>".$row["publicacion"]."</p>
+    <p class='description'>
+    ".$row["publicacion"]."</p>
     </div>
 </div>
 ";

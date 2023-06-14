@@ -75,7 +75,7 @@ if(isset($_SESSION['start']) && $_SESSION['token'] == 'SI') {
       </label>
     </div>
     <p class='contenido-publicacion'>Contenido de la publicación:</p>
-    <textarea id='myTextarea' name='contenido' placeholder='Escribe el contenido de tu publicación aquí...' required></textarea>
+    <textarea id='myTextarea' name='contenido' placeholder='Escribe el contenido de tu publicación aquí...' minlength='200'required></textarea>
 
     
     <button type='submit' name='ejecutar'>

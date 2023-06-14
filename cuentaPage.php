@@ -67,6 +67,7 @@ session_start();
 
 		.container {
 			display: flex;
+			background-color: whitesmoke;
 		}
 
 
@@ -81,6 +82,7 @@ session_start();
 
 
 		.content {
+			background-color: whitesmoke;
 			width: 90%;
 			margin-right: 25%;
 			padding: 1px 16px;
@@ -163,10 +165,11 @@ session_start();
 			cursor: pointer;
 			border-radius: 6px;
 		}
-		.card {
+.card {
+	margin: 4px 2px;
   box-sizing: border-box;
   display: flex;
-  max-width: 25%;
+  max-width: 100%;
   background-color: rgba(255, 255, 255, 1);
   transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -200,12 +203,13 @@ session_start();
   background-color: rgba(17, 24, 39, 0.1);
 }
 
-.content {
+.content2 {
   display: flex;
   flex: 1 1 0%;
   flex-direction: column;
   justify-content: space-between;
 }
+
 
 .infos {
   border-left: 1px solid rgba(17, 24, 39, 0.1);
@@ -232,14 +236,12 @@ session_start();
 }
 
 .action {
-  display: block;
   background-color: rgba(253, 224, 71, 1);
   padding: 0.75rem 1.25rem;
   text-align: center;
   font-size: 0.75rem;
   line-height: 1rem;
   font-weight: 700;
-  text-transform: uppercase;
   color: rgba(17, 24, 39, 1);
   transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -356,7 +358,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT idp, id, titulo, publicacion, fecha FROM publicaciones LIMIT 12";
+$sql = "SELECT idp, id, titulo, publicacion, fecha FROM publicaciones  ORDER BY fecha DESC";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -372,7 +374,7 @@ if ($result->num_rows > 0) {
       <span>Oct 10</span>
     </time>
   </div>
-  <div class='content'>
+  <div class='content2'>
   
     <div class='infos'>
       <a href='#'>
@@ -383,13 +385,16 @@ if ($result->num_rows > 0) {
 
       <p class='description'>";
       echo $row['publicacion'];
-
      echo " </p>
     </div>
-
-      <a class='action' href='#'>
-        Read Blog
-      </a>
+		
+	
+	<form method='POST'>
+      <input class='action' type='submit' name='ejecutar' value='Menu Principal'>
+	  <input class='action' type='submit' name='ejecutar' value='Menu Principal'>
+    </form>
+	<a class='action'>
+	</a>
   </div>
 </div>";
 

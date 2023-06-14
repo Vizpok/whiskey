@@ -1,6 +1,4 @@
 <?php
-  // Start the session
-  ini_set('display_errors', 1);
   session_start();
 ?>
 
@@ -21,15 +19,18 @@ $mes = date('m');   // Obtiene el mes actual (con ceros iniciales si es necesari
 $año = date('Y');   // Obtiene el año actual en formato de 4 dígitos
 $idp = uniqid();
 
-$fecha = $dia . '/' . $mes . '/' . $año;
-
+$fecha = $dia . '-' . $mes . '-' . $año;
+$id = $_SESSION['id'];
+$publi = $_POST['contenido'];
+$publi = str_replace("'", "", $publi);
+$titulo = $_POST["titulo"];
 $sql = "INSERT INTO publicaciones (idp, id, titulo, publicacion,fecha)
-VALUES ('$idp', '".$_SESSION['id']."','".$_POST['titulo']."' ,'".$_POST['contenido']."', '$fecha');";
+VALUES ('$idp', '$id','$titulo' ,'$publi', '$fecha')";
 
-if ($conn->multi_query($sql) === TRUE) {
+if ($conn->query($sql) === TRUE) {
   echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
 } else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+  echo "Error al ingresar la publicacion, trata de no usar caracteres especiales: " . $sql . "<br>" . $conn->error;
 }
 
 $conn->close();
