@@ -69,7 +69,10 @@ echo "<div class='row'>
 <div class='leftcolumn'>
   <div class='card'>
     <h2>".$row["titulo"]."</h2>
+    <p>
     <h5>".$dia." ".$mes." ".$año."</h5>
+    <h5> </h5>
+    </p>
     <p class='description'>
     ".$row["publicacion"]."</p></br>
     <center>

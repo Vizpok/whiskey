@@ -37,7 +37,9 @@ include("conf/startPage.php");
 
 <form method="POST">
   </br>
-Buscar Por:
+  <div class="text">
+<h2>Buscar Por:</h2>
+</div>
 <label for="options" class="custom-select">
       <select id="options" name="options">
         <option value="titulo" >Titulo</option>

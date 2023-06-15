@@ -257,7 +257,9 @@
     width: 100%;
     padding: 12px 55px 15px 15px;
     font-size: 14px;
-    color: #B500B5;
+
+    color: #e62bff;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
   }
 
   .custom-select:after {
@@ -276,4 +278,7 @@
   .date{
     background-color: #cffffa;
    }
-   
+   .text{
+    color: #e62bff;
+    font-family: Tahoma, Geneva, sans-serif;
+   }

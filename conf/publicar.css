@@ -1041,5 +1041,8 @@ button:active {
   height: 50%;
   background: white;
   box-shadow: rgba(99, 255, 239, 0.4) 0px 2px 4px, rgba(99, 255, 239, 0.3) 0px 14px 26px -6px, rgba(99, 255, 239, 0.2) 0px -3px 0px inset;
-
+}
+.text{
+  font-family: Century Gothic, sans-serif;
+  color: #333333;
 }

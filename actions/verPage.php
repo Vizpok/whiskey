@@ -9,6 +9,7 @@ session_start();
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--CSS -->
   <link rel="stylesheet" type="text/css" href="http://localhost/whiskey/conf/publicar.css">
 </head>
 <body>
@@ -33,7 +34,7 @@ session_start();
           <div class='topnav-right'></div>
         </div>";
 
-    echo "<h1>Pagina Ver Publicacion</h1>";
+    echo "</br>";
     if(isset($_SESSION['start']) && $_SESSION['token'] == 'SI') {
       $servername = "localhost";
       $username = "root";
