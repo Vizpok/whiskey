@@ -4,6 +4,7 @@
   
   body {
     margin: 0;
+    background-color: #fcf8fc;
   }
   
   /* Style the header */
@@ -258,7 +259,7 @@
     font-size: 14px;
     color: #B500B5;
   }
-  
+
   .custom-select:after {
     position: absolute;
     right: 0;
@@ -272,3 +273,7 @@
     border-left: 1px solid #714BB9;
     z-index: -1;
   }
+  .date{
+    background-color: #cffffa;
+   }
+   

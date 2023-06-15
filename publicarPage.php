@@ -10,11 +10,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  <?php
-  include('publicar.css');
-  ?>
-</style>
+
+   <link rel="stylesheet" type="text/css" href="http://localhost/whiskey/conf/publicar.css">
+
 </head>
 <body>
 <div class="header">
@@ -25,50 +23,22 @@ echo "<div class='topnav'>";
 if(isset($_POST["ejecutar"])){
   echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
 }
-if(isset($_SESSION["start"]) && $_SESSION["token"] == "SI") {
-  echo "<div class='topnav-left'>
-          <a href='http://localhost/whiskey/cuentaPage.php'>Cuenta</a>
-        </div>";
-} else {
-  echo "<div class='topnav-left'>
-          <a href='#' id='iniciar-sesion'>Iniciar Sesion</a>
-          <a href='#' id='crear-cuenta'>Crear Cuenta</a>
-        </div>
-        
-        <form id='crear-cuenta-form' action='http://localhost/whiskey/Sesion/crear_sesion.php' method='POST' style='display: none;'>
-        </form>
-        <form id='iniciar-sesion-form' action='http://localhost/whiskey/Sesion/start_sesion.php' method='POST' style='display: none;'>
-        </form>
 
-        <script>
-          document.getElementById('crear-cuenta').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.getElementById('crear-cuenta-form').submit();
-          });
-        </script>
-        <script>
-          document.getElementById('iniciar-sesion').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.getElementById('iniciar-sesion-form').submit();
-          });
-        </script>";
-}
+include("conf/startPage.php");
 
 echo "<div class='topnav-center'>
     <a href='http://localhost/whiskey/menuPage.php'>Inicio</a>
         <a href='#'>Publicar</a>
         <a href='http://localhost/whiskey/buscarPage.php'>Buscar</a>
-        <a href='#'>News</a>
       </div>
       <div class='topnav-right'></div>
     </div>";
 
-echo "<h1>Pagina Publicar </h1>";
 if(isset($_SESSION['start']) && $_SESSION['token'] == 'SI') {
-  echo "<form method='POST' action='procesarPublicacion.php'>
+  echo "<form method='POST' action='actions/procesarPublicacion.php'>
 
 <div class='form-control'>
-      <input type='text' name='titulo' required maxlength='60'>
+      <input type='text' name='titulo' minlength = '3'required maxlength='60'>
       <label>
         <span style='transition-delay:0ms'>T</span><span style='transition-delay:50ms'>i</span><span style='transition-delay:100ms'>t</span>
         <span style='transition-delay:150ms'>u</span><span style='transition-delay:200ms'>l</span><span style='transition-delay:250ms'>o</span>

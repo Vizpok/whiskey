@@ -5,6 +5,7 @@
 
 body {
   margin: 0;
+  background: #fff6fffd;
 }
 
 /* Style the header */
@@ -1034,4 +1035,11 @@ button:active {
   font-weight: 900;
   font-size: 35px;
   margin-bottom: 25px;
+}
+.cardPublicacion {
+  width: 50%;
+  height: 50%;
+  background: white;
+  box-shadow: rgba(99, 255, 239, 0.4) 0px 2px 4px, rgba(99, 255, 239, 0.3) 0px 14px 26px -6px, rgba(99, 255, 239, 0.2) 0px -3px 0px inset;
+
 }

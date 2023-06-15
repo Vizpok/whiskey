@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    background-color: #fcf8fc;
+  }
+  
+  /* Style the header */
+  .header {
+    background-color: #ededed;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Estilo de barra */
+  .topnav {
+    overflow: hidden;
+    background-color: #3D1663;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 7px 7px 20px #9a52ff,
+               -7px -7px 20px #fb8eff;
+  }
+  
+  /* Style the topnav links */
+  .topnav-left {
+    display: flex;
+  }
+  
+  .topnav-center {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .topnav-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .topnav a {
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Color de Link de barra*/
+  .topnav a:hover {
+    background-color: #A9F468;
+    color: #60249B;
+    box-shadow: 10px 10px 50px #68EE50,
+               -10px -10px 50px #50EECA;
+  }
+  
+  .leftcolumn {   
+    
+    float: left;
+    width: 50%;
+    padding-left: 20px;
+  }
+  
+  /* Right column */
+  .rightcolumn {
+    float: right;
+    width: 50%;
+    padding-left: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 10px 10px 20px #8FF1FF,
+               -10px -10px 20px #8FF1FF;
+  }
+  
+  /* Clear floats after the columns */
+  .row::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 5;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgba(55, 65, 81, 1);
+    /* Nuevas propiedades para limitar el texto */
+    max-height: 3.75rem; /* 3 líneas con 1.25rem de altura cada una */
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
+  /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+  @media screen and (max-width: 400px) {
+    .topnav a {
+      float: none;
+      width: 100%;
+    }
+  }
+  
+  .buttonHome{
+    width: 20%;
+    background-color: #ffa4eb; /* Green */
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow:  5px 5px 20px #ff25d0;
+  }
+  h1 {
+    color: #f125c5a9;
+  }   

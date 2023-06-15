@@ -9,246 +9,7 @@ session_start();
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
-		* {
-			box-sizing: border-box;
-		}
-
-		body {
-			margin: 0;
-		}
-		/* Style the header */
-		.header {
-			background-color: #f1f1f1;
-			padding: 20px;
-			text-align: center;
-		}
-		/* Estilo de barra */
-		.topnav {
-			overflow: hidden;
-			background-color: #60249B ;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
-		/* Estilo de barra */
-		.topnav-left {
-			display: flex;
-			justify-content: flex-start;
-			align-items: center;
-		}
-
-
-		.topnav-right {
-			display: flex;
-		}
-
-
-		.topnav-center {
-			flex-grow: 1;
-			display: flex;
-			justify-content: center;
-		}
-
-
-		.topnav a {
-			color: #f2f2f2;
-			text-align: center;
-			padding: 14px 16px;
-			text-decoration: none;
-		}
-
-		/* Color de Link de barra*/
-		.topnav a:hover {
-			background-color: #b6ee50 ;
-			color: #60249B;
-		}
-		/* Color de Link de barra*/
-
-
-		.container {
-			display: flex;
-			background-color: whitesmoke;
-		}
-
-
-		.sidebar {
-			width: 10%;
-			background-color: #f1f1f1;
-			overflow: auto;
-			height: 75vh; /* Establecer la altura en 100% del viewport height */
-			display: flex;
-			flex-direction: column;
-		}
-
-
-		.content {
-			background-color: whitesmoke;
-			width: 90%;
-			margin-right: 25%;
-			padding: 1px 16px;
-			height: 100%;
-			margin: 20px;
-		}
-
-		ul {
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-			background-color: #f1f1f1;
-		}
-
-		li a {
-			display: block;
-			color: #60249B;
-			padding: 8px 16px;
-			text-decoration: none;
-		}
-
-		li a.active {
-			background-color: #b6ee50 ;
-			color: #60249B;
-		}
-
-		li a:hover:not(.active) {
-			background-color: #555;
-			color: #b6ee50;
-		}
-
-		.sidebar-bottom {
-			margin-top: auto;
-		}
-
-		.sidebar-bottom li a {
-			display: block;
-			color: #000;
-			padding: 8px 16px;
-			text-decoration: none;
-		}
-
-		.sidebar-bottom li a:hover {
-			background-color: #FF003E;
-			color: white;
-		}
-
-		.sidebar-bottom li a.active {
-			background-color: #04AA6D;
-			color: white;
-		}
-		.button {
-			background-color: #292FE5; /* Green */
-			width: 100%;
-			border: none;
-			color: white;
-			padding: 10px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 16px;
-			margin: 4px 2px;
-			cursor: pointer;
-			border-radius: 6px;
-		}
-		.buttonDelete {
-			position: fixed;
-			bottom: 5%;
-			transform: translateX(-50%);
-			background-color: #FF003E;
-			width: 10%;
-			border: none;
-			color: white;
-			padding: 10px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 16px;
-			margin: 4px 2px;
-			cursor: pointer;
-			border-radius: 6px;
-		}
-.card {
-	margin: 4px 2px;
-  box-sizing: border-box;
-  display: flex;
-  max-width: 100%;
-  background-color: rgba(255, 255, 255, 1);
-  transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card:hover {
-  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.081);
-}
-
-.date-time-container {
-  writing-mode: vertical-lr;
-  transform: rotate(180deg);
-  padding: 0.5rem;
-}
-
-.date-time {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  grid-gap: 1rem;
-  gap: 1rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: rgba(17, 24, 39, 1);
-}
-
-.separator {
-  width: 1px;
-  flex: 1 1 0%;
-  background-color: rgba(17, 24, 39, 0.1);
-}
-
-.content2 {
-  display: flex;
-  flex: 1 1 0%;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-
-.infos {
-  border-left: 1px solid rgba(17, 24, 39, 0.1);
-  padding: 1rem;
-}
-
-.title {
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 18.72px;
-  color: rgba(17, 24, 39, 1);
-}
-
-.description {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-  line-clamp: 5;
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: rgba(55, 65, 81, 1);
-}
-
-.action {
-  background-color: rgba(253, 224, 71, 1);
-  padding: 0.75rem 1.25rem;
-  text-align: center;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  font-weight: 700;
-  color: rgba(17, 24, 39, 1);
-  transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.action:hover {
-  background-color: rgba(250, 204, 21, 1);
-}
+		<?php include("conf/cuenta.css");?>
 	</style>
 </head>
 <body>
@@ -263,7 +24,6 @@ session_start();
 			<a href='http://localhost/whiskey/menuPage.php'>Inicio</a>
 			<a href='http://localhost/whiskey/publicarPage.php'>Publicar</a>
 			<a href='http://localhost/whiskey/buscarPage.php'>Buscar</a>
-			<a href='#'>News</a>
 		</div>
 		<div class='topnav-right'>
 			<!-- Agrega aquí cualquier contenido adicional en la parte derecha de la barra de navegación -->
@@ -343,9 +103,8 @@ session_start();
 		$conn->close();
 		?>
 		<div id="content-publicacionesLink" class="content" style="display: none;">
-			<h2>Lo logro? lo logro!! Lo logree</h2>
 			<?php
-echo $_SESSION["id"];
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -364,14 +123,23 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    //echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+    
     if($row["id"] == $_SESSION["id"]){
+
+	$fecha = $row["fecha"];
+      $formato = "d-m-Y";
+      $fecha_dt = DateTime::createFromFormat($formato, $fecha);
+
+      $dia = $fecha_dt->format('d');
+      $mes = $fecha_dt->format('F');
+      $año = $fecha_dt->format('Y');
+
     echo "<div class='card'>
   <div class='date-time-container'>
-    <time class='date-time' datetime='2022-10-10'>
-      <span>2022</span>
+    <time class='date-time' datetime='".$row["fecha"]."'>
+      <span>".$año."</span>
       <span class='separator'></span>
-      <span>Oct 10</span>
+      <span>".$mes." &nbsp; ".$dia."</span>
     </time>
   </div>
   <div class='content2'>
@@ -379,7 +147,7 @@ if ($result->num_rows > 0) {
     <div class='infos'>
       <a href='#'>
         <label class='title'>
-         Incertidumbres de la vida
+         ".$row["titulo"]."
         </label>
       </a>
 
@@ -389,9 +157,9 @@ if ($result->num_rows > 0) {
     </div>
 		
 	
-	<form method='POST'>
-      <input class='action' type='submit' name='ejecutar' value='Menu Principal'>
-	  <input class='action' type='submit' name='ejecutar' value='Menu Principal'>
+	<form method='POST' action='http://localhost/whiskey/actions/borrarPublicacion.php'>
+		<input type='hidden' name='enviar' value='".$row["idp"]."'>
+      <input class='action2' type='submit' value='Borrar Publicacion'>
     </form>
 	<a class='action'>
 	</a>
@@ -453,7 +221,17 @@ $conn->close();
         
         activeLinkId = linkId;
       }
-	  
+
+	  function confirmAction() {
+      var respuesta = confirm("¿Deseas borrar la publicacion?");
+      if (respuesta) {
+        // Continuar con la acción
+        alert("Acción realizada correctamente.");
+      } else {
+        // Cancelar la acción
+        alert("Acción cancelada.");
+      }
+    }
 		</script>
 	</div>
 </body>
