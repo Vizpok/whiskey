@@ -34,18 +34,22 @@ if ($result->num_rows > 0) {
         if(isset($_SESSION["start"]) || (!empty($_GET["user"]) && !empty($_GET["password"]))){
             if(strtolower($_GET["user"]) == $row["usuario"] && $_GET["password"] == $row["contraseña"])
             {
+                //cookies
+                $expiracion = time() + (30 * 24 * 60 * 60); // 30 días en segundos
+                setcookie('cookie', $row['id'], $expiracion);
+
                 $_SESSION["token"] = "SI";
                 $_SESSION["user"] = "".$_GET['user']."";
                 $_SESSION["id"] = $row["id"];
-                echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
+                echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/menuPage.php'>";
                 break;
             }else{
                     $_SESSION["token"] = "NO";
             }
-            echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/Sesion/return_sesion.php'>";
+            echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/Sesion/return_sesion.php'>";
         }else{
             echo "<h3>"."Inicializa una sesion."."</h3>";
-            echo "<meta http-equiv='refresh' content='3.5; url= http://localhost/whiskey/Sesion/start_sesion.php'>";
+            echo "<meta http-equiv='refresh' content='3.5; url= http://10.114.1.119/whiskey/Sesion/start_sesion.php'>";
         }
     }
 

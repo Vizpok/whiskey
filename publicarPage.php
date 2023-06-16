@@ -11,32 +11,32 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-   <link rel="stylesheet" type="text/css" href="http://localhost/whiskey/conf/publicar.css">
+   <link rel="stylesheet" type="text/css" href="http://10.114.1.119/whiskey/conf/publicar.css">
 
 </head>
 <body>
 <div class="header">
-  <h1>Header</h1>
+  <h1>High Gaming</h1>
 </div>
 <?php  
 echo "<div class='topnav'>";
 if(isset($_POST["ejecutar"])){
-  echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
+  echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/menuPage.php'>";
 }
 
 include("conf/startPage.php");
 
 echo "<div class='topnav-center'>
-    <a href='http://localhost/whiskey/menuPage.php'>Inicio</a>
+    <a href='http://10.114.1.119/whiskey/menuPage.php'>Inicio</a>
         <a href='#'>Publicar</a>
-        <a href='http://localhost/whiskey/buscarPage.php'>Buscar</a>
+        <a href='http://10.114.1.119/whiskey/buscarPage.php'>Buscar</a>
       </div>
       <div class='topnav-right'></div>
     </div>";
 
 if(isset($_SESSION['start']) && $_SESSION['token'] == 'SI') {
   echo "<form method='POST' action='actions/procesarPublicacion.php'>
-
+</br>
 <div class='form-control'>
       <input type='text' name='titulo' minlength = '3'required maxlength='60'>
       <label>
@@ -63,11 +63,11 @@ if(isset($_SESSION['start']) && $_SESSION['token'] == 'SI') {
 
   <script>
     function myFunction() {
-      window.location.href = 'http://localhost/whiskey/menuPage.php';
+      window.location.href = 'http://10.114.1.119/whiskey/menuPage.php';
     }
   </script>";
 }else{ 
-  echo "<div class='title'>Para Publicar</div>";
+  echo "</br><div class='title'>Para Publicar</div>";
   echo "<div class='spinner'>
   <span>I</span>
   <span>n</span>

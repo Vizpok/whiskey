@@ -14,16 +14,16 @@ session_start();
 </head>
 <body>
 	<div class="header">
-		<h1>Header</h1>
+		<h1>High Gaming</h1>
 	</div>
 	<div class='topnav'>
 		<div class='topnav-left'>
 			<a href=''>Cuenta</a>
 		</div>
 		<div class='topnav-center'>
-			<a href='http://localhost/whiskey/menuPage.php'>Inicio</a>
-			<a href='http://localhost/whiskey/publicarPage.php'>Publicar</a>
-			<a href='http://localhost/whiskey/buscarPage.php'>Buscar</a>
+			<a href='http://10.114.1.119/whiskey/menuPage.php'>Inicio</a>
+			<a href='http://10.114.1.119/whiskey/publicarPage.php'>Publicar</a>
+			<a href='http://10.114.1.119/whiskey/buscarPage.php'>Buscar</a>
 		</div>
 		<div class='topnav-right'>
 			<!-- Agrega aquí cualquier contenido adicional en la parte derecha de la barra de navegación -->
@@ -36,10 +36,10 @@ session_start();
       <li><a id="publicacionesLink" href="#publicaciones" onclick="activateLink('publicacionesLink')">Publicaciones</a></li>
     </ul>
 			<ul class="sidebar-bottom">
-				<li><a href='#' id='cerrar-cuenta'>Cerrar Sesion</a></li>
+				<li><a class='decor' href='#' id='cerrar-cuenta'>Cerrar Sesion</a></li>
 			</ul>
 		</div>
-		<form id='cerrar-cuenta-form' action='http://localhost/whiskey/Sesion/borrar_sesion.php' method='POST' style='display: none;'></form>
+		<form id='cerrar-cuenta-form' action='http://10.114.1.119/whiskey/Sesion/borrar_sesion.php' method='POST' style='display: none;'></form>
 		<div id="content-perfilLink" class="content" style="display: none;">
 			<center>
 				<?php
@@ -79,11 +79,11 @@ session_start();
 					<input class='button' type='submit' value='Cambiar Apodo'><br>
 				</form>
 				<br>
-				<form action= 'http://localhost/whiskey/Sesion/whconf/act_password.php'>
+				<form action= 'http://10.114.1.119/whiskey/Sesion/whconf/act_password.php'>
 					<input class='button' type='submit' value='Cambiar Contraseña'><br>
 				</form>
 
-				<form id='deleteForm' action='http://localhost/whiskey/Sesion/whconf/borrarCuenta.php'>
+				<form id='deleteForm' action='http://10.114.1.119/whiskey/Sesion/whconf/borrarCuenta.php'>
 					<input class='buttonDelete' type='submit' name='ejecutar' value='Borrar Usuario'><br>
 				  </form>
 				
@@ -97,7 +97,7 @@ session_start();
 		if(isset($_POST['apodo'])){
 			$sqlupd = "UPDATE sesion SET apodo = '".$_POST['apodo']."' WHERE usuario = '$nomUsuario'";
 			if ($conn->query($sqlupd) === TRUE) {
-				echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/cuentaPage.php'>";
+				echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/cuentaPage.php'>";
 			}
 		}
 		$conn->close();
@@ -157,7 +157,7 @@ if ($result->num_rows > 0) {
     </div>
 		
 	
-	<form method='POST' action='http://localhost/whiskey/actions/borrarPublicacion.php'>
+	<form method='POST' action='http://10.114.1.119/whiskey/actions/borrarPublicacion.php'>
 		<input type='hidden' name='enviar' value='".$row["idp"]."'>
       <input class='action2' type='submit' value='Borrar Publicacion'>
     </form>

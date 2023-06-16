@@ -1,56 +1,59 @@
 * {
     box-sizing: border-box;
-}
-
-body {
+  }
+  
+  body {
     margin: 0;
-}
-/* Style the header */
-.header {
-    background-color: #f1f1f1;
+    background-color: #fff3ff;
+  }
+  
+  /* Style the header */
+  .header {
+    background-color: #ededed;
     padding: 20px;
     text-align: center;
-}
-/* Estilo de barra */
-.topnav {
+  }
+  
+  /* Estilo de barra */
+  .topnav {
     overflow: hidden;
-    background-color: #60249B ;
+    background-color: #3D1663;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-/* Estilo de barra */
-.topnav-left {
+    box-shadow: 7px 7px 20px #9a52ff,
+               -7px -7px 20px #fb8eff;
+  }
+  
+  /* Style the topnav links */
+  .topnav-left {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-
-.topnav-right {
-    display: flex;
-}
-
-
-.topnav-center {
-    flex-grow: 1;
+  }
+  
+  .topnav-center {
     display: flex;
     justify-content: center;
-}
-
-
-.topnav a {
+  }
+  
+  .topnav-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .topnav a {
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-}
-
-/* Color de Link de barra*/
-.topnav a:hover {
-    background-color: #b6ee50 ;
+  }
+  
+  /* Color de Link de barra*/
+  .topnav a:hover {
+    background-color: #A9F468;
     color: #60249B;
-}
+    box-shadow: 10px 10px 50px #68EE50,
+               -10px -10px 50px #50EECA;
+  }
 /* Color de Link de barra*/
 
 
@@ -124,10 +127,10 @@ li a:hover:not(.active) {
     color: white;
 }
 .button {
-    background-color: #292FE5; /* Green */
+    background-color: #63ffff; /* Green */
     width: 100%;
     border: none;
-    color: white;
+    color: #ffffff;
     padding: 10px;
     text-align: center;
     text-decoration: none;
@@ -136,6 +139,10 @@ li a:hover:not(.active) {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 6px;
+    box-shadow: 3px 3px 10px #50d6ee,
+               -3px -3px 10px #50eee1;
+               
+
 }
 .buttonDelete {
     position: fixed;
@@ -153,6 +160,8 @@ li a:hover:not(.active) {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 6px;
+    box-shadow: 5px 5px 10px #990000,
+               -3px -3px 10px #ff3a3a;
 }
 .card {
 margin: 4px 2px;
@@ -243,10 +252,14 @@ line-height: 1rem;
 font-weight: 700;
 color: rgba(17, 24, 39, 1);
 transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 .action2:hover {
 background-color: rgba(255, 136, 229, 1);
 }
 .action:hover {
 background-color: rgba(250, 204, 21, 1);
+}
+.decor{
+  box-shadow: 5px 5px 10px #ff1ab3,
 }

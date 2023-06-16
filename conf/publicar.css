@@ -5,12 +5,13 @@
 
 body {
   margin: 0;
-  background: #fff6fffd;
+  background-color: #fff3ff;
+  
 }
 
 /* Style the header */
 .header {
-  background-color: #f1f1f1;
+  background-color: #ededed;
   padding: 20px;
   text-align: center;
 }
@@ -18,10 +19,12 @@ body {
 /* Estilo de barra */
 .topnav {
   overflow: hidden;
-  background-color: #60249B;
+  background-color: #3D1663;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 7px 7px 20px #9a52ff,
+             -7px -7px 20px #fb8eff;
 }
 
 /* Style the topnav links */
@@ -48,8 +51,10 @@ body {
 
 /* Color de Link de barra*/
 .topnav a:hover {
-  background-color: #b6ee50;
+  background-color: #A9F468;
   color: #60249B;
+  box-shadow: 10px 10px 50px #68EE50,
+             -10px -10px 50px #50EECA;
 }
 #myTextarea {
   width: 500px;
@@ -109,7 +114,7 @@ body {
 button {
   font-family: inherit;
   font-size: 20px;
-  background: royalblue;
+  background: #80f0ff;
   color: white;
   padding: 0.7em 1em;
   padding-left: 0.9em;
@@ -119,6 +124,8 @@ button {
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.2s;
+  box-shadow: 5px 5px 10px #b8f4ff,
+               -3px -3px 10px #a3ffff;
 }
 
 button span {
@@ -1031,7 +1038,7 @@ button:active {
   }
  }
  .title {
-  color: #C712AC;
+  color: #e62bff;
   font-weight: 900;
   font-size: 35px;
   margin-bottom: 25px;

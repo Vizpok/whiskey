@@ -7,10 +7,10 @@ session_start();
 $error_message = '';
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   if(isset($_POST["ejecutar"])){
-    echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
+    echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/menuPage.php'>";
   }
   if(isset($_POST["sesion"])){
-    echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/Sesion/start_sesion.php'>";
+    echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/Sesion/start_sesion.php'>";
   }
   if (!empty($_POST["user"]) || !empty($_POST["password"]) || !empty($_POST["apodo"])) {
     $user = strtolower($_POST["user"]);
@@ -41,13 +41,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $_SESSION['usuario'] = $user;
       $_SESSION['usuario'] = $user;
       if ($conn->query($sql) === TRUE) {
+        $expiracion = time() + (30 * 24 * 60 * 60); // 30 días en segundos
+        setcookie('mi_cookie', $id, $expiracion);
+
         $_SESSION['start'] = "SI";
         $_SESSION["token"] = "SI";
         $_SESSION["id"] = $id;
         $_SESSION["user"] = $user;
         $_SESSION["id"] = $id;
         $_SESSION["user"] = $user;
-        echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
+        echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/menuPage.php'>";
       } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
       }

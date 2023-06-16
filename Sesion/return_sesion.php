@@ -15,11 +15,10 @@ session_start();
 
         }else{
             $_SESSION["acceso"] = TRUE;
-            echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/Sesion/start_sesion.php'>";
+            echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/Sesion/start_sesion.php'>";
         }
     }else{
-        echo "<h3>"."inicializa una sesion."."</h3>";
-        echo "<meta http-equiv='refresh' content='2; url= http://localhost/whiskey/Sesion/start_sesion.php'>";
+        echo "<meta http-equiv='refresh' content='2; url= http://10.114.1.119/whiskey/Sesion/start_sesion.php'>";
     }
     
     

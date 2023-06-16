@@ -7,10 +7,10 @@ session_start();
 $error_message_access = 'Usuario o Contraseña incorrectos';
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   if(isset($_POST["ejecutar"])){
-    echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
+    echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/menuPage.php'>";
   }
   if(isset($_POST["crearCuenta"])){
-    echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/Sesion/crear_sesion.php'>";
+    echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/Sesion/crear_sesion.php'>";
   }
   if (!empty($_POST["user"]) || !empty($_POST["password"])) {
     $user = strtolower($_POST["user"]);
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <input type="text" autocomplete="off" id = "user" name="user" class="input" placeholder="Usuario" required>
       <input type="password" autocomplete="off" id = "password" name="password" class="input" placeholder="Contraseña" required><br>
       
-      <h4><a href="http://localhost/whiskey/Sesion/whconf/act_password.php/" style="color: #dfa8ff; font-family: Arial, sans-serif;">Cambiar Contraseña</a></h4>
+      <h4><a href="http://10.114.1.119/whiskey/Sesion/whconf/act_password.php/" style="color: #dfa8ff; font-family: Arial, sans-serif;">Cambiar Contraseña</a></h4>
       </center>
       <center>
       

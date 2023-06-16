@@ -18,7 +18,7 @@
 </head>
   <body>
     <div class="header">
-      <h1>Header</h1>
+      <h1>High Gaming</h1>
     </div>
     <?php  
     echo "<div class='topnav'>";
@@ -28,8 +28,8 @@ include("conf/startPage.php");
 
     echo "<div class='topnav-center'>
             <a href=''>Inicio</a>
-            <a href='http://localhost/whiskey/publicarPage.php'>Publicar</a>
-            <a href='http://localhost/whiskey/buscarPage.php'>Buscar</a>
+            <a href='http://10.114.1.119/whiskey/publicarPage.php'>Publicar</a>
+            <a href='http://10.114.1.119/whiskey/buscarPage.php'>Buscar</a>
           </div>
           <div class='topnav-right'></div>
         </div>";
@@ -38,7 +38,7 @@ include("conf/startPage.php");
     <h1>Publicaciones</h1>
     </center>
 
-<?php
+    <?php
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -57,43 +57,62 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-$fecha = $row["fecha"];
-$formato = "d-m-Y";
-$fecha_dt = DateTime::createFromFormat($formato, $fecha);
+    $autor = $row["id"];
+    // Your logic for the "user" block
+    $conn2 = new mysqli($servername, $username, $password, $dbname);
+    $sql2 = "SELECT id, usuario, apodo FROM sesion ";
+    $result2 = $conn2->query($sql2);
 
-$dia = $fecha_dt->format('d');
-$mes = $fecha_dt->format('F');
-$año = $fecha_dt->format('Y');
-
-echo "<div class='row'>
-<div class='leftcolumn'>
-  <div class='card'>
-    <h2>".$row["titulo"]."</h2>
-    <p>
-    <h5>".$dia." ".$mes." ".$año."</h5>
-    <h5> </h5>
-    </p>
-    <p class='description'>
-    ".$row["publicacion"]."</p></br>
-    <center>
-    <form method = 'POST' action = 'http://localhost/whiskey/actions/verPage.php'>
-      <input type='hidden' name='enviar' value='".$row["idp"]."'>
-      <input class = 'buttonHome' type ='submit' value = 'Ver Publicacion'>
-      </center>
-    </form>
-    </div>
-    <center>
-    </center>
-</div>
-";
-
+    if ($result2->num_rows > 0) {
+      // output data of each row
+      while($row2 = $result2->fetch_assoc()) {
+        if($autor == $row2["id"]){
+          $autor = $row2["usuario"];
+          $apodo = $row2["apodo"];
+          break;
+        }
+      }
+    } else {
+      echo "0 results";
     }
+
+    // Rest of your code for the "cont" block
+    $fecha = $row["fecha"];
+    $formato = "d-m-Y";
+    $fecha_dt = DateTime::createFromFormat($formato, $fecha);
+
+    $dia = $fecha_dt->format('d');
+    $mes = $fecha_dt->format('F');
+    $año = $fecha_dt->format('Y');
+
+    echo "<div class='row'>
+    <div class='leftcolumn'>
+      <div class='card'>
+        <h2>".$row["titulo"]."</h2>
+        <p>
+        <h5>$dia $mes $año &nbsp; &nbsp; Autor: $autor ($apodo)</h5>
+        </p>
+        <p class='description'>
+        ".$row["publicacion"]."</p></br>
+        <center>
+        <form method = 'POST' action = 'http://10.114.1.119/whiskey/actions/verPage.php'>
+          <input type='hidden' name='enviar' value='".$row["idp"]."'>
+          <input class = 'buttonHome' type ='submit' value = 'Ver Publicacion'>
+          </center>
+        </form>
+        </div>
+        <center>
+        </center>
+    </div>
+    ";
   }
-  else {
+} else {
   echo "0 results";
 }
 $conn->close();
 ?>
+
+
 
   </body>
 

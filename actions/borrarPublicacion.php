@@ -21,7 +21,7 @@ if ($conn->query($sql) === TRUE) {
     if(empty($_SESSION["token"]) != true)
     {
 
-        echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/cuentaPage.php'>";
+        echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/cuentaPage.php'>";
     }
 }
 

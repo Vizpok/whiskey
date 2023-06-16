@@ -1,55 +1,59 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: 0;
-    background-color: #fcf8fc;
-  }
-  
-  /* Style the header */
-  .header {
-    background-color: #f1f1f1;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  /* Estilo de barra */
-  .topnav {
-    overflow: hidden;
-    background-color: #60249B;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  /* Style the topnav links */
-  .topnav-left {
-    display: flex;
-  }
-  
-  .topnav-center {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .topnav-right {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .topnav a {
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  /* Color de Link de barra*/
-  .topnav a:hover {
-    background-color: #b6ee50;
-    color: #60249B;
-  }
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #fff3ff;
+}
+
+/* Style the header */
+.header {
+  background-color: #ededed;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Estilo de barra */
+.topnav {
+  overflow: hidden;
+  background-color: #3D1663;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 7px 7px 20px #9a52ff,
+             -7px -7px 20px #fb8eff;
+}
+
+/* Style the topnav links */
+.topnav-left {
+  display: flex;
+}
+
+.topnav-center {
+  display: flex;
+  justify-content: center;
+}
+
+.topnav-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.topnav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Color de Link de barra*/
+.topnav a:hover {
+  background-color: #A9F468;
+  color: #60249B;
+  box-shadow: 10px 10px 50px #68EE50,
+             -10px -10px 50px #50EECA;
+}
   
   .leftcolumn {   
     float: left;
@@ -277,8 +281,28 @@
   }
   .date{
     background-color: #cffffa;
+    border: 1px solid #9fb8ff;
+    box-shadow:  3px 3px 10px #25ffff;
    }
    .text{
     color: #e62bff;
     font-family: Tahoma, Geneva, sans-serif;
    }
+   .buttonHome{
+    width: 20%;
+    background-color: #ffa4eb; /* Green */
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow:  5px 5px 20px #ff25d0;
+  }
+  .buttonHome:hover {
+    background-color: #fb8eff;
+  }

@@ -28,7 +28,7 @@ if ($conn->query($sql) === TRUE) {
         // destroy the session
         session_destroy();
         //echo "Se ha cerrado sesion";
-        echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
+        echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/menuPage.php'>";
     }
 }
 

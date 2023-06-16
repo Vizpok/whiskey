@@ -1,7 +1,8 @@
 <?php
+
 if(isset($_SESSION["start"]) && $_SESSION["token"] == "SI") {
   echo "<div class='topnav-left'>
-          <a href='http://localhost/whiskey/cuentaPage.php'>Cuenta</a>
+          <a href='http://10.114.1.119/whiskey/cuentaPage.php'>Cuenta</a>
         </div>";
 } else {
   echo "<div class='topnav-left'>
@@ -9,9 +10,9 @@ if(isset($_SESSION["start"]) && $_SESSION["token"] == "SI") {
           <a href='#' id='crear-cuenta'>Crear Cuenta</a>
         </div>
         
-        <form id='crear-cuenta-form' action='http://localhost/whiskey/Sesion/crear_sesion.php' method='POST' style='display: none;'>
+        <form id='crear-cuenta-form' action='http://10.114.1.119/whiskey/Sesion/crear_sesion.php' method='POST' style='display: none;'>
         </form>
-        <form id='iniciar-sesion-form' action='http://localhost/whiskey/Sesion/start_sesion.php' method='POST' style='display: none;'>
+        <form id='iniciar-sesion-form' action='http://10.114.1.119/whiskey/Sesion/start_sesion.php' method='POST' style='display: none;'>
         </form>
 
         <script>

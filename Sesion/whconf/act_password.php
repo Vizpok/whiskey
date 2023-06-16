@@ -39,11 +39,11 @@
         }
         if(!isset($_SESSION["user"]) || !isset($_SESSION["id"])){
           if(isset($_POST["ejecutar"])){
-            echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/Sesion/start_sesion.php'>";
+            echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/Sesion/start_sesion.php'>";
           }
         }else{
           if(isset($_POST["ejecutar"])){
-          echo "<meta http-equiv='refresh' content='0; url= http://localhost/whiskey/menuPage.php'>";
+          echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/menuPage.php'>";
           }
         }
         if (isset($_POST["user"]) && isset($_POST["password"]) && isset($_POST["newPassword"])) {
@@ -80,7 +80,7 @@
                     session_destroy();
                     //echo "Se ha cerrado sesion";
                 }
-                echo "<meta http-equiv='refresh' content='3.5; url= http://localhost/whiskey/Sesion/start_sesion.php'>";
+                echo "<meta http-equiv='refresh' content='3.5; url= http://10.114.1.119/whiskey/Sesion/start_sesion.php'>";
               } else {
                 echo "Error al actualizar la contraseña: " . $conn->error;
               }

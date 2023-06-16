@@ -10,26 +10,26 @@ session_start();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--CSS -->
-  <link rel="stylesheet" type="text/css" href="http://localhost/whiskey/conf/publicar.css">
+  <link rel="stylesheet" type="text/css" href="http://10.114.1.119/whiskey/conf/publicar.css">
 </head>
 <body>
   <center>
     <div class="header">
-      <h1>Header</h1>
+      <h1>High Gaming</h1>
     </div>
 
     <?php  
     echo "<div class='topnav'>";
     if(isset($_POST["ejecutar"])){
-      echo "<meta http-equiv='refresh' content='0; url=http://localhost/whiskey/menuPage.php'>";
+      echo "<meta http-equiv='refresh' content='0; url=http://10.114.1.119/whiskey/menuPage.php'>";
     }
 
     include($_SERVER['DOCUMENT_ROOT']."/whiskey/conf/startPage.php");
 
     echo "<div class='topnav-center'>
-            <a href='http://localhost/whiskey/menuPage.php'>Inicio</a>
-            <a href='http://localhost/whiskey/publicarPage.php'>Publicar</a>
-            <a href='http://localhost/whiskey/buscarPage.php'>Buscar</a>
+            <a href='http://10.114.1.119/whiskey/menuPage.php'>Inicio</a>
+            <a href='http://10.114.1.119/whiskey/publicarPage.php'>Publicar</a>
+            <a href='http://10.114.1.119/whiskey/buscarPage.php'>Buscar</a>
           </div>
           <div class='topnav-right'></div>
         </div>";
@@ -56,10 +56,30 @@ session_start();
         // output data of each row
         while($row = $result->fetch_assoc()) {
           if($_POST["enviar"] == $row["idp"]){
+            $autor = $row["id"];
+            // Your logic for the "user" block
+            $conn2 = new mysqli($servername, $username, $password, $dbname);
+            $sql2 = "SELECT id, usuario, apodo FROM sesion ";
+            $result2 = $conn2->query($sql2);
+
+            if ($result2->num_rows > 0) {
+              // output data of each row
+              while($row2 = $result2->fetch_assoc()) {
+                if($autor == $row2["id"]){
+                  $autor = $row2["usuario"];
+                  $apodo = $row2["apodo"];
+                  break;
+                }
+              }
+            } else {
+              echo "0 results";
+            }
             echo "<div class='cardPublicacion'>";
                 echo "<h2>".$row["titulo"] . "</br></h2>";
-                echo "<h2> Publicado el: " . $row["fecha"] . "</br></br> </h2>";
-                echo "<h4>". $row["publicacion"] . "</br> </h4> </br>";
+                echo "<h2> Publicado el: " . $row["fecha"] . "</h2>
+                <h2>Autor: $autor ($apodo)</h2> 
+                <h4 style='font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;'>".$row["publicacion"]."</h4></br>";
+
             echo "</div>";
            
           }
