@@ -38,15 +38,15 @@ if ($result->num_rows > 0) {
                 $_SESSION["token"] = "SI";
                 $_SESSION["user"] = "" . $_GET['user'] . "";
                 $_SESSION["id"] = $row["id"];
-                echo "<meta http-equiv='refresh' content='0; url= http://192.168.100.190/whiskey/menuPage.php'>";
+                echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/menuPage.php'>";
                 break;
             } else {
                 $_SESSION["token"] = "NO";
             }
-            echo "<meta http-equiv='refresh' content='0; url= http://192.168.100.190/whiskey/Sesion/return_sesion.php'>";
+            echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/Sesion/return_sesion.php'>";
         } else {
             echo "<h3>" . "Inicializa una sesion." . "</h3>";
-            echo "<meta http-equiv='refresh' content='3.5; url= http://192.168.100.190/whiskey/Sesion/start_sesion.php'>";
+            echo "<meta http-equiv='refresh' content='3.5; url= http://10.114.1.119/whiskey/Sesion/start_sesion.php'>";
         }
     }
 } else {

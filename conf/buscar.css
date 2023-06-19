@@ -1,158 +1,174 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: 0;
-    background-color: #fff3ff;
-  }
-  /*Mi participacion by Ashli
-  Mi participacion by Ashli
-  Mi participacion by Ashli*/
+  box-sizing: border-box;
+}
 
-  /* Style the header */
-  .header {
-    background-color: #ededed;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  /* Estilo de barra */
-  .topnav {
-    overflow: hidden;
-    background-color: #3D1663;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 7px 7px 20px #9a52ff,
-               -7px -7px 20px #fb8eff;
-  }
-  
-  /* Style the topnav links */
-  .topnav-left {
-    display: flex;
-  }
-  
-  .topnav-center {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .topnav-right {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .topnav a {
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  /* Color de Link de barra*/
-  .topnav a:hover {
-    background-color: #A9F468;
-    color: #60249B;
-    box-shadow: 10px 10px 50px #68EE50,
-               -10px -10px 50px #50EECA;
-  }
+body {
+  margin: 0;
+  background-color: #fff3ff;
+}
+
+/* Style the header */
+.header {
+  background-color: #ededed;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Estilo de barra */
+.topnav {
+  overflow: hidden;
+  background-color: #3D1663;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 7px 7px 20px #9a52ff,
+             -7px -7px 20px #fb8eff;
+}
+
+/* Style the topnav links */
+.topnav-left {
+  display: flex;
+}
+
+.topnav-center {
+  display: flex;
+  justify-content: center;
+}
+
+.topnav-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.topnav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
 /* Color de Link de barra*/
-
-
-.container {
-    display: flex;
-    background-color: whitesmoke;
+.topnav a:hover {
+  background-color: #A9F468;
+  color: #60249B;
+  box-shadow: 10px 10px 50px #68EE50,
+             -10px -10px 50px #50EECA;
 }
-
-
-.sidebar {
-    width: 10%;
+  
+  .leftcolumn {   
+    float: left;
+    width: 50%;
     background-color: #f1f1f1;
-    overflow: auto;
-    height: 75vh; /* Establecer la altura en 100% del viewport height */
-    display: flex;
-    flex-direction: column;
-}
-
-
-.content {
-    background-color: whitesmoke;
-    width: 90%;
-    margin-right: 25%;
-    padding: 1px 16px;
-    height: 100%;
-    margin: 20px;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    padding-left: 20px;
+  }
+  
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 50%;
     background-color: #f1f1f1;
-}
-
-li a {
-    display: block;
-    color: #60249B;
-    padding: 8px 16px;
-    text-decoration: none;
-}
-
-li a.active {
-    background-color: #b6ee50 ;
-    color: #60249B;
-}
-
-li a:hover:not(.active) {
-    background-color: #555;
-    color: #b6ee50;
-}
-
-.sidebar-bottom {
-    margin-top: auto;
-}
-
-.sidebar-bottom li a {
-    display: block;
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
-}
-
-.sidebar-bottom li a:hover {
-    background-color: #FF003E;
-    color: white;
-}
-
-.sidebar-bottom li a.active {
-    background-color: #04AA6D;
-    color: white;
-}
-.button {
-    background-color: #63ffff; /* Green */
-    width: 100%;
-    border: none;
-    color: #ffffff;
-    padding: 10px;
+    padding-left: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Clear floats after the columns */
+  .row::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
+  /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+  @media screen and (max-width: 400px) {
+    .topnav a {
+      float: none;
+      width: 100%;
+    }
+  }
+  .group {
+   display: flex;
+   line-height: 28px;
+   align-items: center;
+   position: relative;
+   max-width: 400px;
+   margin-top: 30px;
+  }
+  
+  .input {
+   width: 100%;
+   height: 40px;
+   line-height: 28px;
+   padding: 0 1rem;
+   padding-left: 2.5rem;
+   border: 2px solid transparent;
+   border-radius: 8px;
+   outline: none;
+   background-color: #cffffa;
+   box-shadow:  5px 5px 10px #63ffef;
+   color: #0d0c22;
+   transition: .3s ease;
+  }
+  
+  .input::placeholder {
+   color: #9e9ea7;
+  }
+  
+  .input:focus, input:hover {
+   outline: none;
+   border-color: rgba(234,76,137,0.4);
+   background-color: #fff;
+    box-shadow:  5px 5px 20px #ff25d0;
+  }
+  
+  .icon {
+   position: absolute;
+   left: 1rem;
+   fill: #9e9ea7;
+   width: 1rem;
+   height: 1rem;
+  }
+  .radio-inputs {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 0.5rem;
+    background-color: #EEE;
+    box-sizing: border-box;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem;
+    width: 300px;
+    font-size: 14px;
+  }
+  
+  .radio-inputs .radio {
+    flex: 1 1 auto;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+  }
+  
+  .radio-inputs .radio input {
+    display: none;
+  }
+  
+  .radio-inputs .radio .name {
+    display: flex;
     cursor: pointer;
-    border-radius: 6px;
-    box-shadow: 3px 3px 10px #50d6ee,
-               -3px -3px 10px #50eee1;
-               
-
-}
-.buttonDelete {
-    position: fixed;
-    bottom: 5%;
-    transform: translateX(-50%);
-    background-color: #FF003E;
-    width: 10%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
     border: none;
     padding: .5rem 0;
     color: rgba(51, 65, 85, 1);
