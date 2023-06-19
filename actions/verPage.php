@@ -1,7 +1,7 @@
 <?php
-// Start the session
-ini_set('display_errors', 1);
-session_start();
+  // Start the session
+  ini_set('display_errors', 1);
+  session_start();
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ session_start();
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="http://10.114.1.119/whiskey/conf/publicar.css">
 </head>
 <body>
@@ -34,7 +34,7 @@ session_start();
           <div class='topnav-right'></div>
         </div>";
 
-    echo "</br>";
+    echo "<br>";
     if(isset($_SESSION['start']) && $_SESSION['token'] == 'SI') {
       $servername = "localhost";
       $username = "root";
@@ -75,13 +75,11 @@ session_start();
               echo "0 results";
             }
             echo "<div class='cardPublicacion'>";
-                echo "<h2>".$row["titulo"] . "</br></h2>";
-                echo "<h2> Publicado el: " . $row["fecha"] . "</h2>
-                <h2>Autor: $autor ($apodo)</h2> 
-                <h4 style='font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;'>".$row["publicacion"]."</h4></br>";
-
+            echo "<h2>".$row["titulo"] . "</h2>";
+            echo "<h2> Publicado el: " . $row["fecha"] . "</h2>";
+            echo "<h2>Autor: $autor ($apodo)</h2>";
+            echo "<h4 style='font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;'>".$row["publicacion"]."</h4><br>";
             echo "</div>";
-           
           }
         }
       } else {

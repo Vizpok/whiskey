@@ -20,6 +20,7 @@
     var today = new Date().toISOString().split('T')[0];
     dateInput.value = today;
   });
+
   function toggleInputs() {
     var selectedOption = document.getElementById("options").value;
     var searchInput = document.getElementById("searchInput");
@@ -71,7 +72,7 @@
       <div class="group">
         <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
           <g>
-            <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+          <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
           </g>
         </svg>
         <input placeholder="Search" type="search" class="input" name="search" minlength="3" id="searchInput" value="<?php echo $_POST['search'] ?? ''; ?>">
@@ -79,42 +80,39 @@
       <br>
       <input class="date" type="date" id="dateInput" name="date" style="display: none;">
       <br><br>
-      <button class="buttonHome" style="width: 10%;" type="submit" >Buscar</button><br>
+      <button class="buttonHome" style="width: 10%;" type="submit">Buscar</button><br>
     </form>
   </center>
   <br>
   <?php
-      if (isset($_POST['options']) && $_POST['options'] === 'fecha'){
-      echo " <script>
-      var selectedOption = document.getElementById('options').value;
-      var searchInput = document.getElementById('searchInput');
-      var dateInput = document.getElementById('dateInput');
-      var icon = document.querySelector('.icon');
-        searchInput.style.display = 'none';
-        dateInput.style.display = 'inline-block';
-        icon.style.display = 'none'; // Oculta la clase .icon
-      </script>";
-      }
-    
-if(isset($_POST["options"])){
-    $opt = $_POST["options"];
-    //echo $_POST["options"];
-}else{
-    //echo "Aun no se selecciona nada";
+if (isset($_POST['options']) && $_POST['options'] === 'fecha') {
+  echo "<script>
+    var selectedOption = document.getElementById('options').value;
+    var searchInput = document.getElementById('searchInput');
+    var dateInput = document.getElementById('dateInput');
+    var icon = document.querySelector('.icon');
+    searchInput.style.display = 'none';
+    dateInput.style.display = 'inline-block';
+    icon.style.display = 'none'; // Oculta la clase .icon
+  </script>";
 }
-?>
 
-<?php
+if (isset($_POST["options"])) {
+  $opt = $_POST["options"];
+} else {
+  //echo "Aun no se selecciona nada";
+}
 
-if(isset($_POST["search"])){
+if (isset($_POST["search"])) {
   $search = trim($_POST['search']);
   $cont = 0;
   if (empty($search) && $_POST["options"] != "fecha") {
     goto end;
-  } 
+  }
   $busqueda = $search;
   $busqueda = strtolower(str_replace(' ', '', $busqueda));
 }
+
 $cont = 0;
 $servername = "localhost";
 $username = "root";
@@ -127,164 +125,160 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-if(isset($_POST["options"]) && $_POST["options"] == "usuario"){
+
+if (isset($_POST["options"]) && $_POST["options"] == "usuario") {
   $sql = "SELECT id, usuario FROM sesion ";
   $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    
-    if(isset($_POST["search"])){
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while ($row = $result->fetch_assoc()) {
 
-      $search = $row["$opt"];
-      $search = strtolower(str_replace(' ', '', $search));
+      if (isset($_POST["search"])) {
 
-    if(/*substr(*/$search/*,0,strlen($busqueda))*/ === $busqueda){
-     $id = $row["id"];
-     //echo $id;
+        $search = $row["$opt"];
+        $search = strtolower(str_replace(' ', '', $search));
 
-     $sql = "SELECT idp, id, titulo, publicacion, fecha FROM publicaciones  ORDER BY fecha DESC";
+        if ($search === $busqueda) {
+          $id = $row["id"];
+          //echo $id;
 
-     $result = $conn->query($sql);
+          $sql = "SELECT idp, id, titulo, publicacion, fecha FROM publicaciones  ORDER BY fecha DESC";
 
-        if ($result->num_rows > 0) {
-          // output data of each row
-          while($row = $result->fetch_assoc()) {
-            
-          if($id == $row["id"]){
-            $cont ++;
-            $autor = $row["id"];
-    // Your logic for the "user" block
-    $conn2 = new mysqli($servername, $username, $password, $dbname);
-    $sql2 = "SELECT id, usuario, apodo FROM sesion ";
-    $result2 = $conn2->query($sql2);
+          $result = $conn->query($sql);
 
-    if ($result2->num_rows > 0) {
-      // output data of each row
-      while($row2 = $result2->fetch_assoc()) {
-        if($autor == $row2["id"]){
-          $autor = $row2["usuario"];
-          $apodo = $row2["apodo"];
-          break;
-        }
-      }
-    } else {
-      echo "0 results";
-    }
+          if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
 
-              $fecha = $row["fecha"];
-              $fecha = $row["fecha"];
-              $formato = "d-m-Y";
-              $fecha_dt = DateTime::createFromFormat($formato, $fecha);
+              if ($id == $row["id"]) {
+                $cont++;
+                $autor = $row["id"];
+                // Your logic for the "user" block
+                $conn2 = new mysqli($servername, $username, $password, $dbname);
+                $sql2 = "SELECT id, usuario, apodo FROM sesion ";
+                $result2 = $conn2->query($sql2);
 
-              $dia = $fecha_dt->format('d');
-              $mes = $fecha_dt->format('F');
-              $año = $fecha_dt->format('Y');
+                if ($result2->num_rows > 0) {
+                  // output data of each row
+                  while ($row2 = $result2->fetch_assoc()) {
+                    if ($autor == $row2["id"]) {
+                      $autor = $row2["usuario"];
+                      $apodo = $row2["apodo"];
+                      break;
+                    }
+                  }
+                } else {
+                  echo "0 results";
+                }
 
-              echo "<div class='row'>
+                $fecha = $row["fecha"];
+                $fecha = $row["fecha"];
+                $formato = "d-m-Y";
+                $fecha_dt = DateTime::createFromFormat($formato, $fecha);
+
+                $dia = $fecha_dt->format('d');
+                $mes = $fecha_dt->format('F');
+                $año = $fecha_dt->format('Y');
+
+                echo "<div class='row'>
               <div class='leftcolumn'>
                 <div class='card'>
-                  <h2>".$row["titulo"]."</h2>
+                  <h2>" . $row["titulo"] . "</h2>
                   <p>
                   <h5>$dia $mes $año &nbsp; &nbsp; Autor: $autor ($apodo)</h5>
                   </p>
                   <p class='description'>
-                  ".$row["publicacion"]."</p>
+                  " . $row["publicacion"] . "</p>
                   <center>
           <form method = 'POST' action = 'http://10.114.1.119/whiskey/actions/verPage.php'>
-            <input type='hidden' name='enviar' value='".$row["idp"]."'>
+            <input type='hidden' name='enviar' value='" . $row["idp"] . "'>
             <input class = 'buttonHome' type ='submit' value = 'Ver Publicacion'>
             </center>
           </form>
                   </div>
               </div>
               ";
+              }
             }
+          } else {
+            echo "0 results";
           }
         }
-          else {
-          echo "0 results";
-        }//fin//
+      }
     }
-    }
+  } else {
+    echo "0 results";
   }
-}
-  else {
-  echo "0 results";
-}
-
-}else if(isset($_POST["options"]) && $_POST["options"] == "titulo"){
+} else if (isset($_POST["options"]) && $_POST["options"] == "titulo") {
   $sql = "SELECT idp, id, titulo, publicacion, fecha FROM publicaciones  ORDER BY fecha DESC";
 
+  $result = $conn->query($sql);
 
-$result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while ($row = $result->fetch_assoc()) {
 
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    
-    if(isset($_POST["search"])){
-      $search = $row["$opt"];
-      $search = strtolower(str_replace(' ', '', $search));
-    if(substr($search,0,strlen($busqueda)) === $busqueda){
-      $autor = $row["id"];
-    // Your logic for the "user" block
-    $conn2 = new mysqli($servername, $username, $password, $dbname);
-    $sql2 = "SELECT id, usuario, apodo FROM sesion ";
-    $result2 = $conn2->query($sql2);
+      if (isset($_POST["search"])) {
+        $search = $row["$opt"];
+        $search = strtolower(str_replace(' ', '', $search));
+        if (substr($search, 0, strlen($busqueda)) === $busqueda) {
+          $autor = $row["id"];
+          // Your logic for the "user" block
+          $conn2 = new mysqli($servername, $username, $password, $dbname);
+          $sql2 = "SELECT id, usuario, apodo FROM sesion ";
+          $result2 = $conn2->query($sql2);
 
-    if ($result2->num_rows > 0) {
-      // output data of each row
-      while($row2 = $result2->fetch_assoc()) {
-        if($autor == $row2["id"]){
-          $autor = $row2["usuario"];
-          $apodo = $row2["apodo"];
-          break;
-        }
-      }
-    } else {
-      echo "0 results";
-    }
+          if ($result2->num_rows > 0) {
+            // output data of each row
+            while ($row2 = $result2->fetch_assoc()) {
+              if ($autor == $row2["id"]) {
+                $autor = $row2["usuario"];
+                $apodo = $row2["apodo"];
+                break;
+              }
+            }
+          } else {
+            echo "0 results";
+          }
 
-      $cont ++;
-      $fecha = $row["fecha"];
-      $fecha = $row["fecha"];
-$formato = "d-m-Y";
-$fecha_dt = DateTime::createFromFormat($formato, $fecha);
+          $cont++;
+          $fecha = $row["fecha"];
+          $fecha = $row["fecha"];
+          $formato = "d-m-Y";
+          $fecha_dt = DateTime::createFromFormat($formato, $fecha);
 
-$dia = $fecha_dt->format('d');
-$mes = $fecha_dt->format('F');
-$año = $fecha_dt->format('Y');
+          $dia = $fecha_dt->format('d');
+          $mes = $fecha_dt->format('F');
+          $año = $fecha_dt->format('Y');
 
-      echo "<div class='row'>
+          echo "<div class='row'>
       <div class='leftcolumn'>
         <div class='card'>
-          <h2>".$row["titulo"]."</h2>
+          <h2>" . $row["titulo"] . "</h2>
           <p>
         <h5>$dia $mes $año &nbsp; &nbsp; Autor: $autor ($apodo)</h5>
         </p>
           <p class='description'>
-          ".$row["publicacion"]."</p>
+          " . $row["publicacion"] . "</p>
           <center>
           <form method = 'POST' action = 'http://10.114.1.119/whiskey/actions/verPage.php'>
-            <input type='hidden' name='enviar' value='".$row["idp"]."'>
+            <input type='hidden' name='enviar' value='" . $row["idp"] . "'>
             <input class = 'buttonHome' type ='submit' value = 'Ver Publicacion'>
             </center>
           </form>
           </div>
       </div>
       ";
+        }
+      }
     }
-    }
+  } else {
+    echo "0 results";
   }
-}
-  else {
-  echo "0 results";
-}
-}else if(isset($_POST["options"]) && $_POST["options"] == "fecha"){
+} else if (isset($_POST["options"]) && $_POST["options"] == "fecha") {
   $sql = "SELECT idp, id, titulo, publicacion, fecha FROM publicaciones  ORDER BY fecha DESC";
-  
+
   $fecha = $_POST["date"];
   $formato = "Y-m-d";
   $fecha_dt = DateTime::createFromFormat($formato, $fecha);
@@ -293,81 +287,83 @@ $año = $fecha_dt->format('Y');
   $año = $fecha_dt->format('Y');
   $busqueda = "$dia-$mes-$año";
 
+  $result = $conn->query($sql);
 
-$result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while ($row = $result->fetch_assoc()) {
 
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    
-    if(isset($_POST["date"])){
-      $search = $row["$opt"];
-      $search = strtolower(str_replace(' ', '', $search));
+      if (isset($_POST["date"])) {
+        $search = $row["$opt"];
+        $search = strtolower(str_replace(' ', '', $search));
 
-      
-    if(substr($search,0,strlen($busqueda)) === $busqueda){
-      $autor = $row["id"];
-    // Your logic for the "user" block
-    $conn2 = new mysqli($servername, $username, $password, $dbname);
-    $sql2 = "SELECT id, usuario, apodo FROM sesion ";
-    $result2 = $conn2->query($sql2);
 
-    if ($result2->num_rows > 0) {
-      // output data of each row
-      while($row2 = $result2->fetch_assoc()) {
-        if($autor == $row2["id"]){
-          $autor = $row2["usuario"];
-          $apodo = $row2["apodo"];
-          break;
-        }
-      }
-    } else {
-      echo "0 results";
-    }
+        if (substr($search, 0, strlen($busqueda)) === $busqueda) {
+          $autor = $row["id"];
+          // Your logic for the "user" block
+          $conn2 = new mysqli($servername, $username, $password, $dbname);
+          $sql2 = "SELECT id, usuario, apodo FROM sesion ";
+          $result2 = $conn2->query($sql2);
 
-      $cont ++;
-      $fecha = $row["fecha"];
-      $formato = "d-m-Y";
-      $fecha_dt = DateTime::createFromFormat($formato, $fecha);
+          if ($result2->num_rows > 0) {
+            // output data of each row
+            while ($row2 = $result2->fetch_assoc()) {
+              if ($autor == $row2["id"]) {
+                $autor = $row2["usuario"];
+                $apodo = $row2["apodo"];
+                break;
+              }
+            }
+          } else {
+            echo "0 results";
+          }
 
-      $dia = $fecha_dt->format('d');
-      $mes = $fecha_dt->format('F');
-      $año = $fecha_dt->format('Y');
+          $cont++;
+          $fecha = $row["fecha"];
+          $formato = "d-m-Y";
+          $fecha_dt = DateTime::createFromFormat($formato, $fecha);
 
-      echo "<div class='row'>
+          $dia = $fecha_dt->format('d');
+          $mes = $fecha_dt->format('F');
+          $año = $fecha_dt->format('Y');
+
+          echo "<div class='row'>
       <div class='leftcolumn'>
         <div class='card'>
-          <h2>".$row["titulo"]."</h2>
+          <h2>" . $row["titulo"] . "</h2>
           <p>
         <h5>$dia $mes $año &nbsp; &nbsp; Autor: $autor ($apodo)</h5>
         </p>
           <p class='description'>
-          ".$row["publicacion"]."</p>
+          " . $row["publicacion"] . "</p>
           <center>
           <form method = 'POST' action = 'http://10.114.1.119/whiskey/actions/verPage.php'>
-            <input type='hidden' name='enviar' value='".$row["idp"]."'>
+            <input type='hidden' name='enviar' value='" . $row["idp"] . "'>
             <input class = 'buttonHome' type ='submit' value = 'Ver Publicacion'>
             </center>
           </form>
           </div>
       </div>
       ";
+        }
+      }
     }
-    }
+  } else {
+    echo "0 results";
   }
-}
-  else {
-  echo "0 results";
-}
 }
 $conn->close();
 echo "<center>";
 
-  if(isset($_POST["search"]) && $cont <= 0){
-    echo "No hay resultados";
-  }
-  end:
-echo "</center>";
-?>
-  </body>
+if (isset($_POST["search"])) {
+  if ($cont == 0) {
+    echo "<h3>No se encontraron resultados para la búsqueda.</h3>";
+  }/* else {
+    echo "<h3>Se encontraron $cont resultado(s) para la búsqueda.</h3>";
+  }*/
+}
 
+end:
+?>
+</center>
+</div>

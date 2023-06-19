@@ -1,5 +1,5 @@
 <?php
-ini_set('display_erros', 1);
+ini_set('display_errors', 1);
 session_start();
 
 $servername = "localhost";
@@ -20,7 +20,6 @@ $sql = "DELETE FROM publicaciones WHERE idp = '$idp'";
 if ($conn->query($sql) === TRUE) {
     if(empty($_SESSION["token"]) != true)
     {
-
         echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/cuentaPage.php'>";
     }
 }

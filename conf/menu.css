@@ -8,11 +8,12 @@
   }
   
   /* Style the header */
-  .header {
-    background-color: #ededed;
-    padding: 20px;
-    text-align: center;
-  }
+.header {
+  background-color: #ededed;
+  padding: 20px;
+  text-align: center;
+}
+
   
   /* Estilo de barra */
   .topnav {
@@ -133,6 +134,9 @@
     border-radius: 12px;
     box-shadow:  5px 5px 20px #ff25d0;
   }
+  .buttonHome:hover {
+    background-color: #fb8eff;
+  }
   h1 {
-    color: #e62bff;
+    color: #8606a0;
   }   

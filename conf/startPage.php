@@ -1,19 +1,16 @@
 <?php
-
-if(isset($_SESSION["start"]) && $_SESSION["token"] == "SI") {
-  echo "<div class='topnav-left'>
+if (isset($_SESSION["start"]) && $_SESSION["token"] == "SI") {
+    echo "<div class='topnav-left'>
           <a href='http://10.114.1.119/whiskey/cuentaPage.php'>Cuenta</a>
         </div>";
 } else {
-  echo "<div class='topnav-left'>
+    echo "<div class='topnav-left'>
           <a href='#' id='iniciar-sesion'>Iniciar Sesion</a>
           <a href='#' id='crear-cuenta'>Crear Cuenta</a>
         </div>
         
-        <form id='crear-cuenta-form' action='http://10.114.1.119/whiskey/Sesion/crear_sesion.php' method='POST' style='display: none;'>
-        </form>
-        <form id='iniciar-sesion-form' action='http://10.114.1.119/whiskey/Sesion/start_sesion.php' method='POST' style='display: none;'>
-        </form>
+        <form id='crear-cuenta-form' action='http://10.114.1.119/whiskey/Sesion/crear_sesion.php' method='POST' style='display: none;'></form>
+        <form id='iniciar-sesion-form' action='http://10.114.1.119/whiskey/Sesion/start_sesion.php' method='POST' style='display: none;'></form>
 
         <script>
           document.getElementById('crear-cuenta').addEventListener('click', function(event) {

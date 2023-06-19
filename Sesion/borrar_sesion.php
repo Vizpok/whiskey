@@ -7,20 +7,18 @@
 <body>
 
 <?php
-    if(empty($_SESSION["token"]) != true)
-    {
-        // remove all session variables
-        session_unset();
+if (empty($_SESSION["token"]) != true) {
+    // remove all session variables
+    session_unset();
 
-        // destroy the session
-        session_destroy();
-        //echo "Se ha cerrado sesion";
-        echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/menuPage.php'>";
-    }else{
-        echo "No has inicializado una sesion.";
-        echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/menuPage.php'>";
-    }
-
+    // destroy the session
+    session_destroy();
+    //echo "Se ha cerrado sesion";
+    echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/menuPage.php'>";
+} else {
+    echo "No has inicializado una sesion.";
+    echo "<meta http-equiv='refresh' content='0; url= http://10.114.1.119/whiskey/menuPage.php'>";
+}
 ?>
 
 </body>

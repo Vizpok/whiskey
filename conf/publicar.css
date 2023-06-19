@@ -14,6 +14,7 @@ body {
   background-color: #ededed;
   padding: 20px;
   text-align: center;
+  color: #8606a0;
 }
 
 /* Estilo de barra */
@@ -1053,3 +1054,6 @@ button:active {
   font-family: Century Gothic, sans-serif;
   color: #333333;
 }
+h1 {
+  color: #8606a0;
+}   
